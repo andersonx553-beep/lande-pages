@@ -1,0 +1,16 @@
+{
+  "name": "viver-bem-decoracoes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --minify",
+    "build": "npm run build:css && node scripts/build-standalone.mjs"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.0",
+    "@tailwindcss/cli": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

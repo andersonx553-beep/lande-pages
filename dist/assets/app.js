@@ -1,0 +1,15 @@
+'use strict';
+const phone='5585986000833';
+const whatsapp=(text)=>'https://wa.me/'+phone+'?text='+encodeURIComponent(text);
+const defaultMessage='Olá, Viver Bem! Vi o site e gostaria de um orçamento para o meu ambiente. Podem me ajudar com os modelos, valores e condições?';
+document.querySelectorAll('[data-whatsapp]').forEach(link=>link.href=whatsapp(defaultMessage));
+document.querySelectorAll('[data-product]').forEach(link=>{const product=link.dataset.product;const id=link.closest('article').id;link.href=whatsapp('Olá, Viver Bem! Gostaria de um orçamento para a peça "'+product+'" que vi no site. Quero consultar medidas, cores, materiais, pagamento e entrega. Referência: '+location.origin+location.pathname+'#'+id);});
+const filterButtons=document.querySelectorAll('[data-filter]');
+filterButtons.forEach(button=>button.addEventListener('click',()=>{filterButtons.forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});let count=0;document.querySelectorAll('.product').forEach(card=>{card.hidden=button.dataset.filter!=='all'&&card.dataset.category!==button.dataset.filter;if(!card.hidden)count++;});document.getElementById('filter-status').textContent=count+(count===1?' peça exibida.':' peças exibidas.');}));
+document.getElementById('quote-form').addEventListener('submit',event=>{event.preventDefault();const piece=document.getElementById('piece').value;const space=document.getElementById('space').value;const city=document.getElementById('city').value.trim();const message='Olá, Viver Bem! Gostaria de um orçamento.\n\nInteresse: '+piece+'\nAmbiente: '+space+(city?'\nCidade de entrega: '+city:'')+'\n\nPodem me informar medidas, cores, materiais, valores, formas de pagamento, frete e prazo?';const link=document.createElement('a');link.href=whatsapp(message);link.target='_blank';link.rel='noopener noreferrer';document.body.append(link);link.click();link.remove();});
+const dialog=document.getElementById('photo-dialog');let priorFocus=null;
+document.querySelectorAll('[data-preview]').forEach(button=>button.addEventListener('click',()=>{priorFocus=button;const card=button.closest('.product');document.getElementById('dialog-title').textContent=card.querySelector('h3').textContent;document.getElementById('dialog-photo').replaceChildren(card.querySelector('.photo').cloneNode(true));document.getElementById('dialog-quote').href=card.querySelector('[data-product]').href;dialog.showModal();}));
+document.getElementById('close-dialog').addEventListener('click',()=>dialog.close());
+dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
+dialog.addEventListener('close',()=>priorFocus?.focus());
+document.getElementById('year').textContent=new Date().getFullYear();
