@@ -1,5 +1,7 @@
 # Sketches — Nova hero + landing page
 
+> A variante C foi promovida a site principal: o código final está em `dist/index.html` (gerado na raiz com `npm run build`). Estas pastas ficam como histórico dos protótipos.
+
 Protótipos descartáveis para comparar direções de execução antes de promover para `index.html`.
 Cada subpasta é uma variante self-contained (um `index.html` + a pasta `assets/` com as fotos processadas).
 

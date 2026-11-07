@@ -3,12 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --minify",
-    "build": "npm run build:css && node scripts/build-site.mjs"
-  },
-  "devDependencies": {
-    "tailwindcss": "^4.1.0",
-    "@tailwindcss/cli": "^4.1.0"
+    "build": "node scripts/build-site.mjs"
   },
   "engines": {
     "node": ">=22"
