@@ -1,24 +1,31 @@
-# Variante C — Híbrida (Editorial + Anatomia)
+# Variante C — Piloto
 
-**Preview:** https://claude.ai/artifact/Wr2mMdZjJj24NWPzZeVr2x
+**Prévia:** https://claude.ai/artifact/Wr2mMdZjJj24NWPzZeVr2x
 
-## Posição de design
-Igual à Variante A na primeira dobra (protegendo a conversão), **mais** uma seção "Anatomia de uma peça" logo após a materials strip. Um painel escuro com uma poltrona à esquerda e 4 hotspots clicáveis (Encosto / Trama / Estofado / Pés). O card lateral abre a explicação técnica de cada componente. Auto-cycle quando entra na dobra, pausa no primeiro clique.
+## Conceito
+A cadeira pendente começa pendurada na cena da varanda. Ao rolar, ela sai da foto,
+atravessa "O conforto ganha presença" e pousa em "Um convite para ficar", onde
+aparecem os rótulos Trama e Estofado. A página continua rolando normalmente:
+não há trecho preso na tela.
 
-## Escolhas-chave
-- **Mesmo DNA visual da Variante A** (tipos, cores, grades) — só adiciona uma seção.
-- **Seção Anatomia em dark:** `#1c201a` de fundo, contraste alto, serve como "pausa" na jornada e sinaliza "aqui é profundo, olha".
-- **Hotspots:** SVG overlay no topo da foto, com anéis pulsantes CSS (@keyframes pulse); clicáveis via mouse ou teclado.
-- **Auto-cycle:** a cada 3.5s troca de hotspot automaticamente enquanto a seção está visível. Mata o auto-cycle no primeiro clique do usuário (não rouba o controle).
+## Fluxo
+1. Hero: varanda ao fim da tarde, texto na parede clara, botão para as peças.
+2. O conforto ganha presença: detalhes de Trama e Toque.
+3. Um convite para ficar: a cadeira pousa, com rótulos.
+4. Peças: 6 peças; cada uma abre um detalhe com WhatsApp e mensagem pronta.
+5. Nossa essência: texto, números (50 anos, Fortaleza e interior, entrega) e entregas recentes reais.
+6. Perguntas frequentes e contato (WhatsApp principal, Instagram secundário).
 
-## Trade-offs
-- **Forte em:** diferencia da concorrência local, cria memória ("aquele site da Viver Bem explica os móveis"), educa sem precisar de vídeo pesado.
-- **Fraco em:** mais código JS (ainda vanilla, ~40 linhas a mais), mais uma seção pra manter. Os hotspots assumem UMA foto como referência — se o produto específico muda, os pontos ficam fora do lugar. Em produção, cada peça precisaria dos seus próprios coords.
+## Técnica
+- A viagem é calculada a partir da posição real da cadeira na foto (respeita o
+  `object-fit: cover`), então funciona em qualquer largura, do celular ao 4K.
+- Raiz tipográfica fluida em `rem`: a composição cresce por igual em telas grandes.
+- Sem bibliotecas. `prefers-reduced-motion` e o botão "Pausar movimentos" deixam
+  a cadeira parada no lugar onde ela pousa.
+- Imagens: `scripts/process-hero-assets.py` (cenário, recorte da cadeira, detalhes)
+  e `scripts/extract-reference-assets.py` (logo e peças do HTML de referência).
 
-## Para quem serve
-Cliente que está comparando com concorrente, questiona qualidade ("compensa esse preço?"), quer entender o que faz uma peça durar. A seção Anatomia vira argumento de venda que o atendente reutiliza no WhatsApp.
-
-## Peso (medido)
-- HTML: ~28KB (6KB a mais que A)
-- Fotos: iguais à A
-- JS: ~90 linhas totais, sem bibliotecas
+## Pendências
+- Imagens em resolução maior para 4K (cenário ~3.800px, cadeira ~2.000px de altura).
+- Fotos das peças com o mesmo fundo e a mesma luz, para a grade ficar uniforme.
+- Confirmar com a loja: "50 anos", área de entrega e descrições das peças.
