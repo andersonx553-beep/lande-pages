@@ -149,12 +149,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .fact strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2rem,3vw,4.2rem);line-height:1;letter-spacing:-.02em}
 .fact span{display:block;margin-top:.6rem;font-size:.85rem;color:#cfd2c3}
 .deliveries{margin-top:clamp(3.5rem,7vw,6rem)}
-.deliveries h3{font-size:1.6rem;margin-bottom:1.3rem}
+.deliveries-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1.8rem}
+.deliveries h3{font-size:clamp(1.9rem,2.6vw,3.6rem);max-width:16ch}
+.deliveries-head p{max-width:34ch;color:#cfd2c3}
 .deliv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2vw,2rem)}
 .deliv-grid figure{margin:0}
 .deliv-grid img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.deliv-grid figcaption{display:flex;justify-content:space-between;gap:1rem;padding-top:.8rem;font-size:.85rem;color:#cfd2c3}
-.deliv-grid figcaption b{font-weight:500;color:var(--forest-ink)}
+.deliv-grid figcaption{padding-top:1rem}
+.deliv-grid figcaption span{display:block;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#c9bf9f}
+.deliv-grid figcaption b{display:block;margin-top:.45rem;font-family:var(--display);font-weight:400;font-size:1.35rem;line-height:1.2;color:var(--forest-ink)}
 
 /* perguntas */
 .faq{padding-block:clamp(4.5rem,8vw,8rem)}
@@ -229,6 +232,8 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   .piece h3{font-size:1.2rem}
   .facts{grid-template-columns:1fr}
   .fact,.fact+.fact{padding:1.2rem 0;border-left:0;border-bottom:1px solid rgba(233,228,214,.22)}
+  .deliveries-head{display:block}
+  .deliveries-head p{margin-top:.9rem}
   .deliv-grid{grid-template-columns:1fr;gap:1.6rem}
   .deliv-grid img{aspect-ratio:4/3}
   .modal{grid-template-columns:1fr}
@@ -344,11 +349,14 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         <div class="fact"><strong>Na sua casa</strong><span>entregamos a peça onde ela vai ficar</span></div>
       </div>
       <div class="deliveries rise">
-        <h3>Entregas recentes</h3>
+        <div class="deliveries-head">
+          <h3>Onde a Viver Bem já é parte da casa.</h3>
+          <p>Cada entrega é uma casa que ganha um novo lugar favorito. Estas são algumas delas.</p>
+        </div>
         <div class="deliv-grid">
-          <figure><img src="assets/products/entrega-guaramiranga-varanda-md.webp" width="960" height="876" loading="lazy" alt="Varanda com vista para a serra, com mesa e cadeiras em fibra e uma espreguiçadeira redonda"><figcaption><b>Varanda · Guaramiranga</b><span>Dez 2024</span></figcaption></figure>
-          <figure><img src="assets/products/entrega-fortaleza-pendente-md.webp" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes num jardim tropical"><figcaption><b>Jardim · Fortaleza</b><span>Dez 2024</span></figcaption></figure>
-          <figure><img src="assets/products/entrega-fortaleza-conjunto-md.webp" width="960" height="628" loading="lazy" alt="Varanda com sofá e duas poltronas em fibra verde e almofadas estampadas"><figcaption><b>Varanda · Fortaleza</b><span>Dez 2024</span></figcaption></figure>
+          <figure><img src="assets/products/entrega-guaramiranga-varanda-md.webp" width="960" height="876" loading="lazy" alt="Varanda com vista para a serra, com mesa e cadeiras em fibra e uma espreguiçadeira redonda"><figcaption><span>Uma de nossas entregas · Guaramiranga</span><b>Uma varanda com vista para a serra.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-fortaleza-pendente-md.webp" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes num jardim tropical"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>Um canto de descanso no jardim.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-fortaleza-conjunto-md.webp" width="960" height="628" loading="lazy" alt="Varanda com sofá e duas poltronas em fibra verde e almofadas estampadas"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>A varanda pronta para receber.</b></figcaption></figure>
         </div>
       </div>
     </div>
