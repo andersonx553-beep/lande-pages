@@ -1,6 +1,13 @@
 {
   "version": 1,
   "skills": {
+    "copy-editing": {
+      "source": "coreyhaines31/marketingskills",
+      "ref": "main",
+      "sourceType": "github",
+      "skillPath": "skills/copy-editing/SKILL.md",
+      "computedHash": "2c98bcf29c1adeac0dc5772a53a97d3b4c0320fd03accfb03a204c84d9a2799b"
+    },
     "seo-audit": {
       "source": "coreyhaines31/marketingskills",
       "ref": "main",
