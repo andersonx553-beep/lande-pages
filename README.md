@@ -50,6 +50,13 @@ Para abrir localmente: `python3 -m http.server 8000 --bind 127.0.0.1` e acesse `
 
 Os scripts gravam em `src/assets/`. Copie para `dist/assets/` os arquivos usados no site.
 
+## SEO
+
+- Título, descrição, link canônico, prévia de compartilhamento (`dist/assets/og-image.jpg`, 1200×630) e dados da loja (JSON-LD `FurnitureStore`) são gerados pelo build com o `SITE_URL`.
+- O build também gera `sitemap.xml` e `robots.txt`. Num GitHub Pages de projeto (`usuario.github.io/lande-pages/`), os buscadores ignoram o `robots.txt`, porque só o leem na raiz do domínio; por isso os protótipos em `sketches/` têm `noindex` no próprio HTML. Com domínio próprio, o `robots.txt` passa a valer.
+- Google Search Console: adicione a propriedade do tipo "Prefixo do URL" com o endereço do site, verifique e envie o `sitemap.xml`.
+- Busca local: o que mais pesa para aparecer em "loja de móveis em Fortaleza" é o Perfil da Empresa no Google (Google Meu Negócio), com endereço ou área de atendimento, horários, fotos e avaliações reais. O site sozinho não coloca a loja no mapa.
+
 ## Estrutura da página
 
 1. Varanda com o título e o botão para as peças. A cadeira pendente fica no canto da cena.

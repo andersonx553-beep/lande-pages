@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Viver Bem Decorações</title>
+<title>Móveis para varanda em Fortaleza | Viver Bem Decorações</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Móveis que aproximam pessoas e convidam a ficar. Cadeiras pendentes, poltronas e conjuntos em fibra para a sua casa. Fale com a Viver Bem pelo WhatsApp.">
+<meta name="description" content="Cadeiras pendentes, poltronas e conjuntos em fibra para varanda e jardim. 50 anos de história e entregas em Fortaleza. Peça seu orçamento pelo WhatsApp.">
 <meta name="theme-color" content="#f3ebdf">
 <meta name="color-scheme" content="light">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Viver Bem Decorações">
-<meta property="og:title" content="Viver Bem Decorações">
+<meta property="og:title" content="Viver Bem Decorações | Móveis para varanda e jardim">
 <meta property="og:description" content="Há peças que viram parte da casa. Conheça os móveis e fale com a loja pelo WhatsApp.">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="preload" as="image" href="assets/hero/cenario-1738.webp" imagesrcset="assets/hero/cenario-768.webp 768w, assets/hero/cenario-1280.webp 1280w, assets/hero/cenario-1738.webp 1738w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -111,7 +112,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .landing .static{width:100%;height:100%;object-fit:contain}
 .track{position:absolute;right:max(1.6rem,env(safe-area-inset-right,0px));top:clamp(5rem,9vw,9rem);height:min(28rem,50%);width:1px;background:var(--rule)}
 .track span{display:block;width:3px;height:0;background:var(--track);transform:translateX(-1px)}
-.landing-foot{position:absolute;left:var(--gutter);bottom:2rem;font-family:var(--display);font-size:1.25rem;color:#7e7466}
+.landing-foot{position:absolute;left:var(--gutter);bottom:2rem;font-family:var(--display);font-size:1.25rem;color:var(--muted)}
 
 /* a cadeira que viaja */
 .traveler{position:absolute;left:0;top:0;z-index:3;pointer-events:none;transform-origin:0 0;will-change:transform;visibility:hidden}
@@ -126,13 +127,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .head h2{font-size:clamp(2.4rem,4vw,5.8rem);margin-top:1rem}
 .head p{max-width:30ch;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2vw,2rem)}
-.piece{text-align:left;display:block;width:100%}
+.piece{position:relative}
 .piece .ph{position:relative;display:block;aspect-ratio:1;overflow:hidden;background:var(--linen-2)}
 .piece img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .piece .ph.contain img{object-fit:contain;padding:6%}
 .piece:hover img{transform:scale(1.04)}
 .piece .ph::after{content:"Ver detalhes ↗";position:absolute;right:1rem;bottom:1rem;background:var(--linen);padding:.5rem .8rem;font-size:.78rem;opacity:0;transform:translateY(6px);transition:.25s}
-.piece:hover .ph::after,.piece:focus-visible .ph::after{opacity:1;transform:none}
+.piece:hover .ph::after,.piece:focus-within .ph::after{opacity:1;transform:none}
+.piece h3 button{text-align:left}
+.piece h3 button::after{content:"";position:absolute;inset:0}
 .piece h3{font-size:1.55rem;margin-top:1.1rem}
 .piece small{display:block;color:var(--muted);font-size:.85rem;margin-top:.35rem}
 
@@ -250,7 +253,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
 <header class="header">
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="Viver Bem Decorações, início">
-      <img src="assets/brand/logo-480.webp" srcset="assets/brand/logo-240.webp 240w, assets/brand/logo-480.webp 480w, assets/brand/logo-960.webp 960w" sizes="9rem" width="480" height="251" alt="Viver Bem Decorações">
+      <img src="assets/brand/logo-480.webp" srcset="assets/brand/logo-240.webp 240w, assets/brand/logo-480.webp 480w, assets/brand/logo-960.webp 960w" sizes="(max-width:760px) 7.2rem, 8.6rem" width="480" height="251" alt="Viver Bem Decorações">
     </a>
     <span class="divider" aria-hidden="true"></span>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
@@ -296,7 +299,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         </div>
         <div class="landing-col">
           <div class="landing" id="landing">
-            <img class="static" src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 76vw, 29rem" width="1061" height="1466" loading="lazy" alt="Cadeira pendente em fibra natural com almofadas verdes">
+            <img class="static" src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 230px, 29rem" width="1061" height="1466" loading="lazy" alt="Cadeira pendente em fibra natural com almofadas verdes">
           </div>
         </div>
       </div>
@@ -305,7 +308,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
     </section>
 
     <div class="traveler" id="traveler" aria-hidden="true">
-      <img src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 76vw, 29rem" width="1061" height="1466" alt="">
+      <img src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 230px, 29rem" fetchpriority="high" width="1061" height="1466" alt="">
       <div class="shadow"></div>
     </div>
   </div>
@@ -321,12 +324,12 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         <p>Toque em uma peça para ver os detalhes e falar com a loja pelo WhatsApp.</p>
       </div>
       <div class="grid">
-        <button class="piece rise" data-piece="pendente"><span class="ph"><img src="assets/products/entrega-fortaleza-pendente-md.webp" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes, instalada num jardim tropical"></span><h3>Cadeira pendente</h3><small>Fibra natural · almofadas verdes</small></button>
-        <button class="piece rise" data-piece="creme"><span class="ph"><img src="assets/pieces/creme.webp" width="512" height="512" loading="lazy" alt="Poltrona acolchoada clara com estrutura trançada"></span><h3>Poltrona acolchoada clara</h3><small>Estofado claro · estrutura trançada</small></button>
-        <button class="piece rise" data-piece="trama"><span class="ph"><img src="assets/pieces/trama-verde.webp" width="512" height="512" loading="lazy" alt="Cadeira de trama verde com assento acolchoado"></span><h3>Cadeira de trama verde</h3><small>Trama em corda · linhas curvas</small></button>
-        <button class="piece rise" data-piece="terracota"><span class="ph"><img src="assets/pieces/balanco-terracota.webp" width="512" height="512" loading="lazy" alt="Poltrona de balanço com estofado terracota"></span><h3>Poltrona de balanço terracota</h3><small>Estofado capitonado · base de balanço</small></button>
-        <button class="piece rise" data-piece="fibra"><span class="ph"><img src="assets/products/composicao-fibra-sintetica-md.webp" width="960" height="699" loading="lazy" alt="Duas poltronas redondas em fibra sintética com mesa de centro de madeira"></span><h3>Composição em fibra</h3><small>Duas poltronas · mesa de centro</small></button>
-        <button class="piece rise" data-piece="conjunto"><span class="ph"><img src="assets/products/entrega-fortaleza-conjunto-md.webp" width="960" height="628" loading="lazy" alt="Conjunto com sofá de três lugares e duas poltronas em fibra verde"></span><h3>Conjunto para varanda</h3><small>Sofá · duas poltronas · mesa</small></button>
+        <article class="piece rise"><span class="ph"><img src="assets/products/entrega-fortaleza-pendente-md.webp" srcset="assets/products/entrega-fortaleza-pendente-sm.webp 480w, assets/products/entrega-fortaleza-pendente-md.webp 960w" sizes="(max-width:420px) 92vw, (max-width:760px) 46vw, 30vw" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes, instalada num jardim tropical"></span><h3><button data-piece="pendente">Cadeira pendente</button></h3><small>Fibra natural · almofadas verdes</small></article>
+        <article class="piece rise"><span class="ph"><img src="assets/pieces/creme.webp" width="512" height="512" loading="lazy" alt="Poltrona acolchoada clara com estrutura trançada"></span><h3><button data-piece="creme">Poltrona acolchoada clara</button></h3><small>Estofado claro · estrutura trançada</small></article>
+        <article class="piece rise"><span class="ph"><img src="assets/pieces/trama-verde.webp" width="512" height="512" loading="lazy" alt="Cadeira de trama verde com assento acolchoado"></span><h3><button data-piece="trama">Cadeira de trama verde</button></h3><small>Trama em corda · linhas curvas</small></article>
+        <article class="piece rise"><span class="ph"><img src="assets/pieces/balanco-terracota.webp" width="512" height="512" loading="lazy" alt="Poltrona de balanço com estofado terracota"></span><h3><button data-piece="terracota">Poltrona de balanço terracota</button></h3><small>Estofado capitonado · base de balanço</small></article>
+        <article class="piece rise"><span class="ph"><img src="assets/products/composicao-fibra-sintetica-md.webp" srcset="assets/products/composicao-fibra-sintetica-sm.webp 480w, assets/products/composicao-fibra-sintetica-md.webp 960w" sizes="(max-width:420px) 92vw, (max-width:760px) 46vw, 30vw" width="960" height="699" loading="lazy" alt="Duas poltronas redondas em fibra sintética com mesa de centro de madeira"></span><h3><button data-piece="fibra">Composição em fibra</button></h3><small>Duas poltronas · mesa de centro</small></article>
+        <article class="piece rise"><span class="ph"><img src="assets/products/entrega-fortaleza-conjunto-md.webp" srcset="assets/products/entrega-fortaleza-conjunto-sm.webp 480w, assets/products/entrega-fortaleza-conjunto-md.webp 960w" sizes="(max-width:420px) 92vw, (max-width:760px) 46vw, 30vw" width="960" height="628" loading="lazy" alt="Conjunto com sofá de três lugares e duas poltronas em fibra verde"></span><h3><button data-piece="conjunto">Conjunto para varanda</button></h3><small>Sofá · duas poltronas · mesa</small></article>
       </div>
     </div>
   </section>
@@ -354,9 +357,9 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
           <p>Cada entrega é uma casa que ganha um novo lugar favorito. Estas são algumas delas.</p>
         </div>
         <div class="deliv-grid">
-          <figure><img src="assets/products/entrega-guaramiranga-varanda-md.webp" width="960" height="876" loading="lazy" alt="Varanda com vista para a serra, com mesa e cadeiras em fibra e uma espreguiçadeira redonda"><figcaption><span>Uma de nossas entregas · Guaramiranga</span><b>Uma varanda com vista para a serra.</b></figcaption></figure>
-          <figure><img src="assets/products/entrega-fortaleza-pendente-md.webp" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes num jardim tropical"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>Um canto de descanso no jardim.</b></figcaption></figure>
-          <figure><img src="assets/products/entrega-fortaleza-conjunto-md.webp" width="960" height="628" loading="lazy" alt="Varanda com sofá e duas poltronas em fibra verde e almofadas estampadas"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>A varanda pronta para receber.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-guaramiranga-varanda-md.webp" srcset="assets/products/entrega-guaramiranga-varanda-sm.webp 480w, assets/products/entrega-guaramiranga-varanda-md.webp 960w" sizes="(max-width:760px) 92vw, 30vw" width="960" height="876" loading="lazy" alt="Varanda com vista para a serra, com mesa e cadeiras em fibra e uma espreguiçadeira redonda"><figcaption><span>Uma de nossas entregas · Guaramiranga</span><b>Uma varanda com vista para a serra.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-fortaleza-pendente-md.webp" srcset="assets/products/entrega-fortaleza-pendente-sm.webp 480w, assets/products/entrega-fortaleza-pendente-md.webp 960w" sizes="(max-width:760px) 92vw, 30vw" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes num jardim tropical"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>Um canto de descanso no jardim.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-fortaleza-conjunto-md.webp" srcset="assets/products/entrega-fortaleza-conjunto-sm.webp 480w, assets/products/entrega-fortaleza-conjunto-md.webp 960w" sizes="(max-width:760px) 92vw, 30vw" width="960" height="628" loading="lazy" alt="Varanda com sofá e duas poltronas em fibra verde e almofadas estampadas"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>A varanda pronta para receber.</b></figcaption></figure>
         </div>
       </div>
     </div>
