@@ -94,6 +94,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @keyframes arrival{from{transform:scale(1.025);opacity:.6}to{transform:none;opacity:1}}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(243,235,223,.38),rgba(243,235,223,0) 46%);pointer-events:none}
 .hero-copy{position:relative;z-index:4;padding-top:clamp(2.5rem,7vh,6rem);padding-left:var(--gutter);max-width:calc(var(--gutter) + clamp(19rem,31vw,46rem))}
+.hero-copy .hero-kicker{max-width:44ch;text-wrap:balance;margin:0 0 1.3rem;font-size:clamp(.7rem,.72vw,1.05rem);font-weight:600;letter-spacing:.16em;line-height:1.6;text-transform:uppercase;color:#4a4238}
 .hero h1{font-size:clamp(2.9rem,5vw,9.5rem);line-height:.98}
 .hero-copy p{font-size:clamp(1.05rem,1.35vw,2rem);line-height:1.4;max-width:24ch;margin:1.4rem 0 2rem;color:#4a4238}
 .scroll-cue{position:absolute;z-index:4;left:var(--gutter);bottom:1.4rem;display:flex;align-items:center;gap:.8rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;background:rgba(243,235,223,.82);padding:.45rem .75rem}
@@ -243,6 +244,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   .hero-img{position:relative;inset:auto;height:24rem;object-position:63% 50%}
   .hero-shade,.scroll-cue{display:none}
   .hero-copy{order:-1;padding:2rem var(--gutter-r) 1.8rem var(--gutter);max-width:none}
+  .hero-copy .hero-kicker{max-width:34ch;margin-bottom:1rem;font-size:.7rem;letter-spacing:.13em}
   .hero h1{font-size:clamp(2.6rem,11vw,3.6rem)}
   .hero-copy p{margin:1rem 0 1.5rem}
   .landing-sec{padding-block:3.5rem 5rem}
@@ -312,6 +314,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         alt="Varanda ao fim da tarde, com poltrona acolchoada clara, cadeiras de trama verde e mesa redonda de madeira">
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-copy">
+        <p class="hero-kicker">Móveis e decorações artesanais e orgânicos para sua casa, jardim e varanda</p>
         <h1 id="hero-title">Há peças que viram parte da casa.</h1>
         <p>Encontre móveis que aproximam pessoas e convidam a ficar.</p>
         <a class="btn" href="#pecas">Encontre a sua peça <span class="arr" aria-hidden="true">↗</span></a>
