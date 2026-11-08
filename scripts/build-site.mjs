@@ -73,7 +73,7 @@ html = html.replace('</head>', [
   `<meta property="og:image" content="${image}">`,
   '<meta property="og:image:width" content="1200">',
   '<meta property="og:image:height" content="630">',
-  '<meta property="og:image:alt" content="Varanda ao fim da tarde com uma cadeira pendente da Viver Bem Decorações">',
+  '<meta property="og:image:alt" content="Varanda ao fim da tarde com uma cadeira suspensa da Viver Bem Decorações">',
   `<meta name="twitter:image" content="${image}">`,
   '</head>'
 ].join('\n'));
@@ -86,7 +86,7 @@ html = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
     url: url.href,
     logo: abs('dist/assets/brand/logo-960.webp'),
     image: abs('dist/assets/og-image.jpg'),
-    description: 'Cadeiras pendentes, poltronas e conjuntos em fibra para varanda e jardim.',
+    description: 'Loja de móveis em Fortaleza: cadeiras suspensas, poltronas de balanço, mesas e sofás em fibra, corda e madeira para varanda, jardim e área gourmet.',
     areaServed: { '@type': 'City', name: 'Fortaleza' }
   });
   return `<script type="application/ld+json">\n${JSON.stringify(data)}\n</script>`;
