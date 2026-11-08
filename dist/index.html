@@ -204,15 +204,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .rv-photo img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--linen-2)}
 .rv-photo figcaption{margin-top:.7rem;font-size:.85rem;color:var(--muted)}
 .rv-photo figcaption b{display:block;color:var(--ink);font-weight:600}
-.rv-controls{display:flex;align-items:center;gap:clamp(1rem,3vw,2.5rem);margin-top:1.6rem}
-.rv-count{font-variant-numeric:tabular-nums;letter-spacing:.08em;font-size:.95rem;min-width:4.5ch}
-.rv-bar{flex:1;height:3px;background:var(--rule);overflow:hidden}
-.rv-bar span{display:block;height:100%;width:0;background:var(--forest)}
-.rv-pause{width:2.75rem;height:2.75rem;display:grid;place-items:center;border:1px solid var(--rule);border-radius:50%;transition:border-color .2s}
-.rv-pause:hover{border-color:var(--ink)}
-.rv-pause span{width:.7rem;height:.8rem;border-inline:3px solid currentColor}
-.rv-pause[aria-pressed="true"] span{width:0;height:0;border:0;border-left:.7rem solid currentColor;border-block:.42rem solid transparent;margin-left:.2rem}
-.rv-hint{margin-top:.6rem;font-size:.82rem;color:var(--muted)}
+.rv-hint{margin-top:1rem;font-size:.82rem;color:var(--muted)}
 @media (hover:hover) and (pointer:fine){.rv-hint{display:none}}
 
 /* perguntas */
@@ -606,11 +598,6 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
           </article>
         </div>
       </div>
-      <div class="rv-controls">
-        <span class="rv-count" id="rv-count" aria-hidden="true">01 / 04</span>
-        <span class="rv-bar" aria-hidden="true"><span id="rv-fill"></span></span>
-        <button class="rv-pause" id="rv-pause" aria-pressed="false" aria-label="Pausar avaliações"><span aria-hidden="true"></span></button>
-      </div>
       <p class="rv-hint">Deslize para conhecer outras histórias</p>
     </div>
   </section>
@@ -762,15 +749,12 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   addEventListener('load', measure);
   applyMotion();
 
-  /* avaliações: uma por vez, troca a cada 5s, pausa ao passar o mouse, focar ou tocar; arrastar no celular */
+  /* avaliações: uma por vez, troca sozinha a cada 5s; arrastar no celular também troca */
   (() => {
     const stage = document.getElementById('rv-stage');
     const slides = [...stage.querySelectorAll('.rv')];
-    const fill = document.getElementById('rv-fill'), count = document.getElementById('rv-count');
-    const btn = document.getElementById('rv-pause');
     const DUR = 5000, total = slides.length;
-    let i = 0, elapsed = 0, last = 0, userPaused = reduce.matches, hover = false, visible = false;
-    const pad = n => String(n).padStart(2, '0');
+    let i = 0, elapsed = 0, last = 0, visible = false;
     function show(n, dir = 1) {
       const prev = slides[i];
       i = (n + total) % total;
@@ -781,43 +765,22 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         sl.setAttribute('aria-hidden', String(!on));
         sl.querySelectorAll('a').forEach(a => on ? a.removeAttribute('tabindex') : a.setAttribute('tabindex', '-1'));
       });
-      count.textContent = `${pad(i + 1)} / ${pad(total)}`;
-      elapsed = 0; fill.style.width = '0%';
+      elapsed = 0;
     }
-    const running = () => !userPaused && !hover && visible && !document.hidden;
     function tick(t) {
-      if (running()) {
-        elapsed += Math.min(t - last, 100);
-        if (elapsed >= DUR) show(i + 1);
-        fill.style.width = Math.min(100, elapsed / DUR * 100) + '%';
-      }
+      // só conta enquanto a seção está na tela e a aba está aberta
+      if (visible && !document.hidden) { elapsed += Math.min(t - last, 100); if (elapsed >= DUR) show(i + 1); }
       last = t; requestAnimationFrame(tick);
     }
-    function setPaused(v) {
-      userPaused = v;
-      btn.setAttribute('aria-pressed', String(v));
-      btn.setAttribute('aria-label', v ? 'Continuar avaliações' : 'Pausar avaliações');
-    }
-    btn.addEventListener('click', () => setPaused(!userPaused));
-    stage.addEventListener('mouseenter', () => { hover = true; });
-    stage.addEventListener('mouseleave', () => { hover = false; });
-    stage.addEventListener('focusin', () => { hover = true; });
-    stage.addEventListener('focusout', () => { hover = false; });
-    // arrastar no celular: o dedo pausa; ao soltar, um gesto lateral troca de avaliação
     let x0 = null, y0 = 0;
-    stage.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; hover = true; }, { passive: true });
+    stage.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
     stage.addEventListener('touchend', e => {
-      hover = false;
       if (x0 === null) return;
       const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(i + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
       x0 = null;
     }, { passive: true });
-    stage.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight') show(i + 1); else if (e.key === 'ArrowLeft') show(i - 1, -1);
-    });
     new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; }), { threshold: .35 }).observe(stage);
-    setPaused(userPaused);
     requestAnimationFrame(t => { last = t; tick(t); });
   })();
 
