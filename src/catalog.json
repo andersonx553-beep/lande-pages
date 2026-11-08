@@ -1,0 +1,173 @@
+{
+  "categorias": [
+    {
+      "id": "jantar",
+      "nome": "Conjuntos de jantar",
+      "rotulo": "Conjunto de jantar"
+    },
+    {
+      "id": "estar",
+      "nome": "Estar e sofás",
+      "rotulo": "Estar"
+    },
+    {
+      "id": "poltronas",
+      "nome": "Poltronas e cadeiras",
+      "rotulo": "Poltronas e cadeiras"
+    }
+  ],
+  "whatsapp": "5585986000833",
+  "pecas": [
+    {
+      "id": "cadeira-pendente",
+      "categoria": "poltronas",
+      "nome": "Cadeira pendente",
+      "resumo": "Fibra natural · almofadas verdes",
+      "descricao": "Estrutura em fibra natural com trama aberta, corrente para pendurar e almofadas verdes em tecido. Uma peça para a varanda ou o jardim, feita para ficar.",
+      "composicao": "Cadeira pendente com almofadas de assento e encosto",
+      "ambiente": "Varanda, jardim, área de lazer",
+      "foto": "assets/products/entrega-fortaleza-pendente-md.webp",
+      "foto_pequena": "assets/products/entrega-fortaleza-pendente-sm.webp",
+      "largura": 960,
+      "altura": 936,
+      "texto_alternativo": "Cadeira pendente em fibra com almofadas verdes, instalada num jardim tropical"
+    },
+    {
+      "id": "mesa-macica-8-cadeiras",
+      "categoria": "jantar",
+      "nome": "Mesa de madeira maciça para 8",
+      "resumo": "8 cadeiras em corda · bordas orgânicas",
+      "descricao": "Tampo de madeira maciça com as bordas naturais da tora e oito cadeiras com encosto e assento em corda trançada. Para reunir a família inteira na varanda ou na área gourmet.",
+      "composicao": "Mesa retangular e 8 cadeiras",
+      "ambiente": "Área gourmet, varanda, sala de jantar",
+      "foto": "assets/catalog/jantar-madeira-macica-8-cadeiras.webp",
+      "foto_pequena": "assets/catalog/jantar-madeira-macica-8-cadeiras-480.webp",
+      "largura": 667,
+      "altura": 600,
+      "texto_alternativo": "Mesa retangular de madeira maciça com oito cadeiras de corda trançada verde-escura num deck"
+    },
+    {
+      "id": "jantar-redondo-6-cadeiras",
+      "categoria": "jantar",
+      "nome": "Jantar redondo com 6 cadeiras",
+      "resumo": "Tampo de vidro · cadeiras em corda verde",
+      "descricao": "Mesa redonda com tampo de vidro sobre base trançada e seis cadeiras de encosto envolvente em corda verde. Leve no visual e confortável para refeições longas.",
+      "composicao": "Mesa redonda e 6 cadeiras",
+      "ambiente": "Varanda, área gourmet",
+      "foto": "assets/catalog/jantar-redondo-vidro-6-cadeiras.webp",
+      "foto_pequena": "assets/catalog/jantar-redondo-vidro-6-cadeiras-480.webp",
+      "largura": 634,
+      "altura": 482,
+      "texto_alternativo": "Mesa redonda com tampo de vidro e base trançada, com seis cadeiras de corda verde numa varanda"
+    },
+    {
+      "id": "estar-sofa-pufes",
+      "categoria": "estar",
+      "nome": "Estar com sofá e pufes",
+      "resumo": "Sofá, 2 poltronas, mesa e 4 pufes",
+      "descricao": "Sofá de três lugares, duas poltronas e mesa de centro com tampo de vidro que guarda quatro pufes embaixo. Estofados em vermelho para dar cor ao jardim.",
+      "composicao": "Sofá 3 lugares, 2 poltronas, mesa de centro e 4 pufes",
+      "ambiente": "Jardim, varanda, área externa",
+      "foto": "assets/catalog/estar-sofa-poltronas-pufes.webp",
+      "foto_pequena": "assets/catalog/estar-sofa-poltronas-pufes-480.webp",
+      "largura": 602,
+      "altura": 470,
+      "texto_alternativo": "Conjunto de estar em fibra com sofá, duas poltronas, mesa de centro de vidro e quatro pufes, com estofados vermelhos"
+    },
+    {
+      "id": "poltrona-acolchoada-clara",
+      "categoria": "poltronas",
+      "nome": "Poltrona acolchoada clara",
+      "resumo": "Estofado claro · estrutura trançada",
+      "descricao": "Forma arredondada, estofado claro capitonado e estrutura trançada. Uma poltrona para afundar no fim da tarde.",
+      "composicao": "Poltrona com almofada estofada",
+      "ambiente": "Sala, varanda coberta",
+      "foto": "assets/pieces/creme.webp",
+      "largura": 512,
+      "altura": 512,
+      "texto_alternativo": "Poltrona acolchoada clara com estrutura trançada"
+    },
+    {
+      "id": "jantar-redondo-madeira",
+      "categoria": "jantar",
+      "nome": "Jantar redondo em madeira",
+      "resumo": "4 cadeiras em trama · tampo de madeira",
+      "descricao": "Tampo de madeira em réguas sobre base trançada e quatro cadeiras de trama aberta com assento estofado. Um conjunto compacto para varandas e decks.",
+      "composicao": "Mesa redonda e 4 cadeiras",
+      "ambiente": "Varanda, deck, jardim",
+      "foto": "assets/catalog/jantar-redondo-madeira-4-cadeiras.webp",
+      "foto_pequena": "assets/catalog/jantar-redondo-madeira-4-cadeiras-480.webp",
+      "largura": 555,
+      "altura": 474,
+      "texto_alternativo": "Mesa redonda com tampo de madeira e base trançada, com quatro cadeiras de trama bege num deck"
+    },
+    {
+      "id": "composicao-fibra",
+      "categoria": "estar",
+      "nome": "Composição em fibra",
+      "resumo": "2 poltronas redondas · mesa de centro",
+      "descricao": "Duas poltronas redondas em fibra sintética, com almofadas, e uma mesa de centro com tampo de madeira. Ideal para criar um canto de conversa.",
+      "composicao": "2 poltronas redondas com almofadas e mesa de centro",
+      "ambiente": "Varanda, jardim",
+      "foto": "assets/products/composicao-fibra-sintetica-md.webp",
+      "foto_pequena": "assets/products/composicao-fibra-sintetica-sm.webp",
+      "largura": 960,
+      "altura": 699,
+      "texto_alternativo": "Duas poltronas redondas em fibra sintética com mesa de centro de madeira"
+    },
+    {
+      "id": "poltrona-balanco-terracota",
+      "categoria": "poltronas",
+      "nome": "Poltrona de balanço terracota",
+      "resumo": "Estofado capitonado · base de balanço",
+      "descricao": "Estofado capitonado em terracota sobre base de balanço trançada. Uma presença quente para os seus momentos de pausa.",
+      "composicao": "Poltrona de balanço com almofada estofada",
+      "ambiente": "Sala, varanda coberta",
+      "foto": "assets/pieces/balanco-terracota.webp",
+      "largura": 512,
+      "altura": 512,
+      "texto_alternativo": "Poltrona de balanço com estofado terracota"
+    },
+    {
+      "id": "jantar-poltronas-azuis",
+      "categoria": "jantar",
+      "nome": "Jantar com poltronas azuis",
+      "resumo": "4 poltronas em fibra · tampo de vidro",
+      "descricao": "Quatro poltronas de fibra trançada com braços largos e almofadas azuis, em volta de uma mesa redonda com tampo de vidro. Para refeições ao ar livre perto da piscina.",
+      "composicao": "Mesa redonda e 4 poltronas com almofadas",
+      "ambiente": "Área da piscina, varanda, deck",
+      "foto": "assets/catalog/jantar-vidro-4-poltronas.webp",
+      "foto_pequena": "assets/catalog/jantar-vidro-4-poltronas-480.webp",
+      "largura": 617,
+      "altura": 438,
+      "texto_alternativo": "Mesa redonda com tampo de vidro e quatro poltronas de fibra trançada com almofadas azuis, à beira da piscina"
+    },
+    {
+      "id": "conjunto-varanda",
+      "categoria": "estar",
+      "nome": "Conjunto para varanda",
+      "resumo": "Sofá, 2 poltronas e mesa de centro",
+      "descricao": "Sofá de três lugares, duas poltronas e mesa de centro em fibra, com almofadas para combinar com o seu ambiente.",
+      "composicao": "Sofá 3 lugares, 2 poltronas e mesa de centro",
+      "ambiente": "Varanda, sala de estar",
+      "foto": "assets/products/entrega-fortaleza-conjunto-md.webp",
+      "foto_pequena": "assets/products/entrega-fortaleza-conjunto-sm.webp",
+      "largura": 960,
+      "altura": 628,
+      "texto_alternativo": "Conjunto com sofá de três lugares e duas poltronas em fibra verde, com mesa de centro"
+    },
+    {
+      "id": "cadeira-trama-verde",
+      "categoria": "poltronas",
+      "nome": "Cadeira de trama verde",
+      "resumo": "Trama em corda · linhas curvas",
+      "descricao": "Linhas curvas, encosto trançado em corda verde e assento acolchoado. Combina com mesas de jantar e varandas.",
+      "composicao": "Cadeira com assento estofado",
+      "ambiente": "Sala de jantar, varanda",
+      "foto": "assets/pieces/trama-verde.webp",
+      "largura": 512,
+      "altura": 512,
+      "texto_alternativo": "Cadeira de trama verde com assento acolchoado"
+    }
+  ]
+}

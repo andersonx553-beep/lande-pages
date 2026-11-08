@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Viver Bem Decorações</title>
+<title>Móveis para varanda em Fortaleza | Viver Bem Decorações</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Móveis que aproximam pessoas e convidam a ficar. Cadeiras pendentes, poltronas e conjuntos em fibra para a sua casa. Fale com a Viver Bem pelo WhatsApp.">
+<meta name="description" content="Cadeiras pendentes, poltronas e conjuntos em fibra para varanda e jardim. 50 anos de história e entregas em Fortaleza. Peça seu orçamento pelo WhatsApp.">
 <meta name="theme-color" content="#f3ebdf">
 <meta name="color-scheme" content="light">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Viver Bem Decorações">
-<meta property="og:title" content="Viver Bem Decorações">
+<meta property="og:title" content="Viver Bem Decorações | Móveis para varanda e jardim">
 <meta property="og:description" content="Há peças que viram parte da casa. Conheça os móveis e fale com a loja pelo WhatsApp.">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="preload" as="image" href="assets/hero/cenario-1738.webp" imagesrcset="assets/hero/cenario-768.webp 768w, assets/hero/cenario-1280.webp 1280w, assets/hero/cenario-1738.webp 1738w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -111,7 +112,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .landing .static{width:100%;height:100%;object-fit:contain}
 .track{position:absolute;right:max(1.6rem,env(safe-area-inset-right,0px));top:clamp(5rem,9vw,9rem);height:min(28rem,50%);width:1px;background:var(--rule)}
 .track span{display:block;width:3px;height:0;background:var(--track);transform:translateX(-1px)}
-.landing-foot{position:absolute;left:var(--gutter);bottom:2rem;font-family:var(--display);font-size:1.25rem;color:#7e7466}
+.landing-foot{position:absolute;left:var(--gutter);bottom:2rem;font-family:var(--display);font-size:1.25rem;color:var(--muted)}
 
 /* a cadeira que viaja */
 .traveler{position:absolute;left:0;top:0;z-index:3;pointer-events:none;transform-origin:0 0;will-change:transform;visibility:hidden}
@@ -120,22 +121,40 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .traveler .shadow{position:absolute;left:12%;right:12%;bottom:-1.1rem;height:1.7rem;border-radius:50%;background:radial-gradient(ellipse,rgba(56,38,23,.33),transparent 70%);transform:scaleX(.85);filter:blur(7px);z-index:-1}
 .js-travel .landing .static{visibility:hidden}
 
-/* peças */
-.pieces{padding-block:clamp(4.5rem,9vw,9rem)}
-.head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.6rem}
+/* catálogo */
+.catalog{padding-block:clamp(4.5rem,9vw,9rem) clamp(4rem,7vw,7rem)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2rem}
 .head h2{font-size:clamp(2.4rem,4vw,5.8rem);margin-top:1rem}
-.head p{max-width:30ch;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2vw,2rem)}
-.piece{text-align:left;display:block;width:100%}
-.piece .ph{position:relative;display:block;aspect-ratio:1;overflow:hidden;background:var(--linen-2)}
-.piece img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.piece .ph.contain img{object-fit:contain;padding:6%}
-.piece:hover img{transform:scale(1.04)}
-.piece .ph::after{content:"Ver detalhes ↗";position:absolute;right:1rem;bottom:1rem;background:var(--linen);padding:.5rem .8rem;font-size:.78rem;opacity:0;transform:translateY(6px);transition:.25s}
-.piece:hover .ph::after,.piece:focus-visible .ph::after{opacity:1;transform:none}
-.piece h3{font-size:1.55rem;margin-top:1.1rem}
-.piece small{display:block;color:var(--muted);font-size:.85rem;margin-top:.35rem}
-
+.head p{max-width:36ch;color:var(--muted)}
+.cat-bar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--header-h));z-index:20;background:color-mix(in srgb,var(--linen) 96%,transparent);backdrop-filter:blur(10px);border-block:1px solid var(--rule);margin-bottom:clamp(1.6rem,3vw,2.6rem)}
+.cat-bar-in{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:.75rem}
+.chips{display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;min-width:0}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;display:inline-flex;align-items:center;gap:.5rem;min-height:2.6rem;padding:.5rem 1rem;border:1px solid var(--rule);border-radius:99px;font-size:.88rem;white-space:nowrap;transition:background .2s,border-color .2s,color .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--linen)}
+.chip-n{font-size:.72rem;opacity:.65;font-variant-numeric:tabular-nums}
+.cat-count{flex-shrink:0;font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.8rem,3vw,3rem) clamp(1rem,2vw,2rem)}
+.card{position:relative;display:flex;flex-direction:column;min-width:0}
+.card[hidden]{display:none}
+.motion .card.enter{animation:card-in .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes card-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.card-ph{position:relative;aspect-ratio:1;overflow:hidden;background:var(--linen-2)}
+.card-ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover .card-ph img{transform:scale(1.04)}
+.card-ph::after{content:"Ver detalhes";position:absolute;left:50%;bottom:1rem;transform:translate(-50%,6px);background:var(--linen);padding:.5rem .9rem;font-size:.78rem;opacity:0;transition:.25s;white-space:nowrap}
+.card:hover .card-ph::after,.card:focus-within .card-ph::after{opacity:1;transform:translate(-50%,0)}
+.card-cat{margin-top:1rem;font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.card h3{font-size:1.45rem;margin-top:.4rem;line-height:1.15}
+.card-open{text-align:left;line-height:inherit}
+.card-open::after{content:"";position:absolute;inset:0}
+.card-short{margin-top:.35rem;color:var(--muted);font-size:.88rem}
+.card-cta{position:relative;z-index:1;align-self:flex-start;margin-top:.9rem;font-size:.85rem;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:.15rem}
+.card-cta:hover{color:var(--clay)}
+.cat-help{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:clamp(3rem,6vw,5rem);padding:clamp(1.6rem,3vw,2.6rem);background:var(--linen-2)}
+.cat-help h3{font-size:clamp(1.6rem,2.2vw,2.6rem)}
+.cat-help p{margin-top:.5rem;color:var(--muted);max-width:46ch}
 /* essência */
 .essence{background:var(--forest);color:var(--forest-ink);padding-block:clamp(4.5rem,9vw,9rem)}
 .essence .eyebrow{color:#c9bf9f}
@@ -185,17 +204,24 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .motion-toggle{font-size:inherit;color:inherit;border-bottom:1px solid currentColor}
 
 /* detalhe da peça */
-dialog{width:min(56rem,94vw);max-height:90svh;padding:0;border:0;background:var(--linen);color:var(--ink)}
+dialog{width:min(64rem,94vw);max-height:92svh;padding:0;border:0;background:var(--linen);color:var(--ink);overflow:auto;overscroll-behavior:contain}
 dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
-.modal{display:grid;grid-template-columns:1fr 1fr;position:relative}
-.modal-ph{background:var(--linen-2);aspect-ratio:1}
-.modal-ph img{width:100%;height:100%;object-fit:cover}
-.modal-ph.contain img{object-fit:contain;padding:6%}
-.modal-copy{padding:2.6rem 2rem;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1rem}
-.modal-copy h2{font-size:2.3rem}
-.modal-copy p{color:var(--muted);font-size:.95rem}
+.modal{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);position:relative}
+.modal-ph{position:relative;background:var(--linen-2);min-height:28rem}
+.modal-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.modal-copy{padding:2.6rem 2.2rem 2.2rem;display:flex;flex-direction:column;align-items:flex-start;gap:1rem;min-width:0}
+.modal-copy h2{font-size:clamp(2rem,2.6vw,3rem)}
+.modal-copy>p{color:var(--muted);font-size:.98rem}
+.specs{width:100%;margin:.4rem 0 0;display:grid;grid-template-columns:auto 1fr;border-top:1px solid var(--rule);font-size:.88rem}
+.specs dt,.specs dd{margin:0;padding:.7rem 0;border-bottom:1px solid var(--rule)}
+.specs dt{color:var(--muted);padding-right:1.2rem}
 .modal-copy small{color:var(--muted);font-size:.78rem}
-.close{position:absolute;top:.6rem;right:.6rem;width:2.2rem;height:2.2rem;background:var(--linen);border:1px solid var(--rule);font-size:1.3rem;line-height:1}
+.similar{width:100%;margin-top:.8rem}
+.similar h3{font-size:1.15rem;margin-bottom:.8rem}
+.similar-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+.similar-list button{text-align:left;font-size:.8rem;line-height:1.3}
+.similar-list img{width:100%;aspect-ratio:1;object-fit:cover;margin-bottom:.4rem;background:var(--linen-2)}
+.close{position:absolute;z-index:2;top:.7rem;right:.7rem;width:2.4rem;height:2.4rem;background:var(--linen);border:1px solid var(--rule);font-size:1.3rem;line-height:1}
 
 /* entrada suave dos blocos: visível por padrão, anima só com JS e movimento ativo */
 .motion .rise{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -228,19 +254,31 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   .landing-foot{font-size:1rem;bottom:1.5rem;right:var(--gutter-r)}
   .head{display:block}
   .head p{margin-top:1rem}
-  .grid{grid-template-columns:1fr 1fr}
-  .piece h3{font-size:1.2rem}
+  .cat-bar-in{padding-block:.6rem}
+  .cat-count{display:none}
+  .chip{min-height:2.4rem;padding:.4rem .85rem;font-size:.82rem}
+  .chips{margin-right:calc(-1 * var(--gutter-r));padding-right:var(--gutter-r);-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
+  .cards{grid-template-columns:1fr 1fr;gap:1.6rem .8rem}
+  .card-cat{margin-top:.7rem;font-size:.6rem;letter-spacing:.12em}
+  .card h3{font-size:1.08rem}
+  .card-short{font-size:.78rem}
+  .card-cta{font-size:.8rem;margin-top:.6rem}
+  .card-ph::after{display:none}
+  .cat-help{display:block}
+  .cat-help .btn{margin-top:1.2rem}
   .facts{grid-template-columns:1fr}
   .fact,.fact+.fact{padding:1.2rem 0;border-left:0;border-bottom:1px solid rgba(233,228,214,.22)}
   .deliveries-head{display:block}
   .deliveries-head p{margin-top:.9rem}
   .deliv-grid{grid-template-columns:1fr;gap:1.6rem}
   .deliv-grid img{aspect-ratio:4/3}
+  dialog{width:100vw;max-width:100vw;height:100svh;max-height:100svh}
   .modal{grid-template-columns:1fr}
-  .modal-ph{aspect-ratio:3/2}
-  .modal-copy{padding:1.5rem}
+  .modal-ph{aspect-ratio:4/3;min-height:0}
+  .modal-copy{padding:1.5rem var(--gutter-r) 2.5rem var(--gutter)}
 }
-@media (max-width:420px){.grid{grid-template-columns:1fr}}
+@media (max-width:350px){.cards{grid-template-columns:1fr}}
+@media (min-width:1500px){.cards{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -250,12 +288,12 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
 <header class="header">
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="Viver Bem Decorações, início">
-      <img src="assets/brand/logo-480.webp" srcset="assets/brand/logo-240.webp 240w, assets/brand/logo-480.webp 480w, assets/brand/logo-960.webp 960w" sizes="9rem" width="480" height="251" alt="Viver Bem Decorações">
+      <img src="assets/brand/logo-480.webp" srcset="assets/brand/logo-240.webp 240w, assets/brand/logo-480.webp 480w, assets/brand/logo-960.webp 960w" sizes="(max-width:760px) 7.2rem, 8.6rem" width="480" height="251" alt="Viver Bem Decorações">
     </a>
     <span class="divider" aria-hidden="true"></span>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Navegação principal">
-      <a href="#pecas">Peças</a>
+      <a href="#pecas">Catálogo</a>
       <a href="#feito-a-mao">Feito à mão</a>
       <a href="#essencia">Nossa essência</a>
     </nav>
@@ -287,7 +325,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
           <span class="eyebrow">Da sua varanda ao seu lugar favorito</span>
           <h2 id="landing-title">Um convite para ficar.</h2>
           <p>Conheça a trama, o toque e os detalhes de uma peça que convida a desacelerar.</p>
-          <button class="btn" data-piece="pendente">Explore por dentro <span class="arr" aria-hidden="true">↗</span></button>
+          <button class="btn" data-piece="cadeira-pendente">Explore por dentro <span class="arr" aria-hidden="true">↗</span></button>
           <ul class="points">
             <li>01 / Trama que envolve</li>
             <li>02 / Estofado que acolhe</li>
@@ -296,7 +334,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         </div>
         <div class="landing-col">
           <div class="landing" id="landing">
-            <img class="static" src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 76vw, 29rem" width="1061" height="1466" loading="lazy" alt="Cadeira pendente em fibra natural com almofadas verdes">
+            <img class="static" src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 230px, 29rem" width="1061" height="1466" loading="lazy" alt="Cadeira pendente em fibra natural com almofadas verdes">
           </div>
         </div>
       </div>
@@ -305,30 +343,130 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
     </section>
 
     <div class="traveler" id="traveler" aria-hidden="true">
-      <img src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 76vw, 29rem" width="1061" height="1466" alt="">
+      <img src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 230px, 29rem" fetchpriority="high" width="1061" height="1466" alt="">
       <div class="shadow"></div>
     </div>
   </div>
 
 
-  <section class="pieces" id="pecas" aria-labelledby="pieces-title">
+  <section class="catalog" id="pecas" aria-labelledby="catalog-title">
     <div class="wrap">
       <div class="head rise">
         <div>
-          <span class="eyebrow">Peças para o seu viver</span>
-          <h2 id="pieces-title">Encontre o seu lugar de ficar.</h2>
+          <span class="eyebrow">Catálogo</span>
+          <h2 id="catalog-title">Encontre o seu lugar de ficar.</h2>
         </div>
-        <p>Toque em uma peça para ver os detalhes e falar com a loja pelo WhatsApp.</p>
-      </div>
-      <div class="grid">
-        <button class="piece rise" data-piece="pendente"><span class="ph"><img src="assets/products/entrega-fortaleza-pendente-md.webp" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes, instalada num jardim tropical"></span><h3>Cadeira pendente</h3><small>Fibra natural · almofadas verdes</small></button>
-        <button class="piece rise" data-piece="creme"><span class="ph"><img src="assets/pieces/creme.webp" width="512" height="512" loading="lazy" alt="Poltrona acolchoada clara com estrutura trançada"></span><h3>Poltrona acolchoada clara</h3><small>Estofado claro · estrutura trançada</small></button>
-        <button class="piece rise" data-piece="trama"><span class="ph"><img src="assets/pieces/trama-verde.webp" width="512" height="512" loading="lazy" alt="Cadeira de trama verde com assento acolchoado"></span><h3>Cadeira de trama verde</h3><small>Trama em corda · linhas curvas</small></button>
-        <button class="piece rise" data-piece="terracota"><span class="ph"><img src="assets/pieces/balanco-terracota.webp" width="512" height="512" loading="lazy" alt="Poltrona de balanço com estofado terracota"></span><h3>Poltrona de balanço terracota</h3><small>Estofado capitonado · base de balanço</small></button>
-        <button class="piece rise" data-piece="fibra"><span class="ph"><img src="assets/products/composicao-fibra-sintetica-md.webp" width="960" height="699" loading="lazy" alt="Duas poltronas redondas em fibra sintética com mesa de centro de madeira"></span><h3>Composição em fibra</h3><small>Duas poltronas · mesa de centro</small></button>
-        <button class="piece rise" data-piece="conjunto"><span class="ph"><img src="assets/products/entrega-fortaleza-conjunto-md.webp" width="960" height="628" loading="lazy" alt="Conjunto com sofá de três lugares e duas poltronas em fibra verde"></span><h3>Conjunto para varanda</h3><small>Sofá · duas poltronas · mesa</small></button>
+        <p>Conjuntos de jantar, estar e poltronas em fibra para varanda, jardim e área gourmet. Toque em uma peça para ver os detalhes e pedir orçamento pelo WhatsApp.</p>
       </div>
     </div>
+    <div class="cat-bar">
+      <div class="wrap cat-bar-in">
+        <div class="chips" role="group" aria-label="Filtrar por categoria">
+<!--catalogo:filtros-->
+            <button class="chip" data-filter="todos" aria-pressed="true">Todos <span class="chip-n">11</span></button>
+            <button class="chip" data-filter="jantar" aria-pressed="false">Conjuntos de jantar <span class="chip-n">4</span></button>
+            <button class="chip" data-filter="estar" aria-pressed="false">Estar e sofás <span class="chip-n">3</span></button>
+            <button class="chip" data-filter="poltronas" aria-pressed="false">Poltronas e cadeiras <span class="chip-n">4</span></button>
+<!--/catalogo:filtros-->
+        </div>
+        <!--catalogo:contagem-->
+<p class="cat-count" id="cat-count" aria-live="polite">11 peças</p>
+<!--/catalogo:contagem-->
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="cards" id="cards">
+<!--catalogo:pecas-->
+        <article class="card" data-cat="poltronas">
+          <div class="card-ph"><img src="assets/products/entrega-fortaleza-pendente-md.webp" srcset="assets/products/entrega-fortaleza-pendente-sm.webp 480w, assets/products/entrega-fortaleza-pendente-md.webp 960w" sizes="(max-width:350px) 92vw, (max-width:760px) 46vw, (min-width:1500px) 22vw, 30vw" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes, instalada num jardim tropical"></div>
+          <p class="card-cat">Poltronas e cadeiras</p>
+          <h3><button class="card-open" data-piece="cadeira-pendente">Cadeira pendente</button></h3>
+          <p class="card-short">Fibra natural · almofadas verdes</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Cadeira%20pendente.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="jantar">
+          <div class="card-ph"><img src="assets/catalog/jantar-madeira-macica-8-cadeiras.webp" srcset="assets/catalog/jantar-madeira-macica-8-cadeiras-480.webp 480w, assets/catalog/jantar-madeira-macica-8-cadeiras.webp 667w" sizes="(max-width:350px) 92vw, (max-width:760px) 46vw, (min-width:1500px) 22vw, 30vw" width="667" height="600" loading="lazy" alt="Mesa retangular de madeira maciça com oito cadeiras de corda trançada verde-escura num deck"></div>
+          <p class="card-cat">Conjunto de jantar</p>
+          <h3><button class="card-open" data-piece="mesa-macica-8-cadeiras">Mesa de madeira maciça para 8</button></h3>
+          <p class="card-short">8 cadeiras em corda · bordas orgânicas</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Mesa%20de%20madeira%20maci%C3%A7a%20para%208.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="jantar">
+          <div class="card-ph"><img src="assets/catalog/jantar-redondo-vidro-6-cadeiras.webp" srcset="assets/catalog/jantar-redondo-vidro-6-cadeiras-480.webp 480w, assets/catalog/jantar-redondo-vidro-6-cadeiras.webp 634w" sizes="(max-width:350px) 92vw, (max-width:760px) 46vw, (min-width:1500px) 22vw, 30vw" width="634" height="482" loading="lazy" alt="Mesa redonda com tampo de vidro e base trançada, com seis cadeiras de corda verde numa varanda"></div>
+          <p class="card-cat">Conjunto de jantar</p>
+          <h3><button class="card-open" data-piece="jantar-redondo-6-cadeiras">Jantar redondo com 6 cadeiras</button></h3>
+          <p class="card-short">Tampo de vidro · cadeiras em corda verde</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Jantar%20redondo%20com%206%20cadeiras.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="estar">
+          <div class="card-ph"><img src="assets/catalog/estar-sofa-poltronas-pufes.webp" srcset="assets/catalog/estar-sofa-poltronas-pufes-480.webp 480w, assets/catalog/estar-sofa-poltronas-pufes.webp 602w" sizes="(max-width:350px) 92vw, (max-width:760px) 46vw, (min-width:1500px) 22vw, 30vw" width="602" height="470" loading="lazy" alt="Conjunto de estar em fibra com sofá, duas poltronas, mesa de centro de vidro e quatro pufes, com estofados vermelhos"></div>
+          <p class="card-cat">Estar</p>
+          <h3><button class="card-open" data-piece="estar-sofa-pufes">Estar com sofá e pufes</button></h3>
+          <p class="card-short">Sofá, 2 poltronas, mesa e 4 pufes</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Estar%20com%20sof%C3%A1%20e%20pufes.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="poltronas">
+          <div class="card-ph"><img src="assets/pieces/creme.webp" width="512" height="512" loading="lazy" alt="Poltrona acolchoada clara com estrutura trançada"></div>
+          <p class="card-cat">Poltronas e cadeiras</p>
+          <h3><button class="card-open" data-piece="poltrona-acolchoada-clara">Poltrona acolchoada clara</button></h3>
+          <p class="card-short">Estofado claro · estrutura trançada</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Poltrona%20acolchoada%20clara.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="jantar">
+          <div class="card-ph"><img src="assets/catalog/jantar-redondo-madeira-4-cadeiras.webp" srcset="assets/catalog/jantar-redondo-madeira-4-cadeiras-480.webp 480w, assets/catalog/jantar-redondo-madeira-4-cadeiras.webp 555w" sizes="(max-width:350px) 92vw, (max-width:760px) 46vw, (min-width:1500px) 22vw, 30vw" width="555" height="474" loading="lazy" alt="Mesa redonda com tampo de madeira e base trançada, com quatro cadeiras de trama bege num deck"></div>
+          <p class="card-cat">Conjunto de jantar</p>
+          <h3><button class="card-open" data-piece="jantar-redondo-madeira">Jantar redondo em madeira</button></h3>
+          <p class="card-short">4 cadeiras em trama · tampo de madeira</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Jantar%20redondo%20em%20madeira.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="estar">
+          <div class="card-ph"><img src="assets/products/composicao-fibra-sintetica-md.webp" srcset="assets/products/composicao-fibra-sintetica-sm.webp 480w, assets/products/composicao-fibra-sintetica-md.webp 960w" sizes="(max-width:350px) 92vw, (max-width:760px) 46vw, (min-width:1500px) 22vw, 30vw" width="960" height="699" loading="lazy" alt="Duas poltronas redondas em fibra sintética com mesa de centro de madeira"></div>
+          <p class="card-cat">Estar</p>
+          <h3><button class="card-open" data-piece="composicao-fibra">Composição em fibra</button></h3>
+          <p class="card-short">2 poltronas redondas · mesa de centro</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Composi%C3%A7%C3%A3o%20em%20fibra.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="poltronas">
+          <div class="card-ph"><img src="assets/pieces/balanco-terracota.webp" width="512" height="512" loading="lazy" alt="Poltrona de balanço com estofado terracota"></div>
+          <p class="card-cat">Poltronas e cadeiras</p>
+          <h3><button class="card-open" data-piece="poltrona-balanco-terracota">Poltrona de balanço terracota</button></h3>
+          <p class="card-short">Estofado capitonado · base de balanço</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Poltrona%20de%20balan%C3%A7o%20terracota.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="jantar">
+          <div class="card-ph"><img src="assets/catalog/jantar-vidro-4-poltronas.webp" srcset="assets/catalog/jantar-vidro-4-poltronas-480.webp 480w, assets/catalog/jantar-vidro-4-poltronas.webp 617w" sizes="(max-width:350px) 92vw, (max-width:760px) 46vw, (min-width:1500px) 22vw, 30vw" width="617" height="438" loading="lazy" alt="Mesa redonda com tampo de vidro e quatro poltronas de fibra trançada com almofadas azuis, à beira da piscina"></div>
+          <p class="card-cat">Conjunto de jantar</p>
+          <h3><button class="card-open" data-piece="jantar-poltronas-azuis">Jantar com poltronas azuis</button></h3>
+          <p class="card-short">4 poltronas em fibra · tampo de vidro</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Jantar%20com%20poltronas%20azuis.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="estar">
+          <div class="card-ph"><img src="assets/products/entrega-fortaleza-conjunto-md.webp" srcset="assets/products/entrega-fortaleza-conjunto-sm.webp 480w, assets/products/entrega-fortaleza-conjunto-md.webp 960w" sizes="(max-width:350px) 92vw, (max-width:760px) 46vw, (min-width:1500px) 22vw, 30vw" width="960" height="628" loading="lazy" alt="Conjunto com sofá de três lugares e duas poltronas em fibra verde, com mesa de centro"></div>
+          <p class="card-cat">Estar</p>
+          <h3><button class="card-open" data-piece="conjunto-varanda">Conjunto para varanda</button></h3>
+          <p class="card-short">Sofá, 2 poltronas e mesa de centro</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Conjunto%20para%20varanda.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card" data-cat="poltronas">
+          <div class="card-ph"><img src="assets/pieces/trama-verde.webp" width="512" height="512" loading="lazy" alt="Cadeira de trama verde com assento acolchoado"></div>
+          <p class="card-cat">Poltronas e cadeiras</p>
+          <h3><button class="card-open" data-piece="cadeira-trama-verde">Cadeira de trama verde</button></h3>
+          <p class="card-short">Trama em corda · linhas curvas</p>
+          <a class="card-cta" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Cadeira%20de%20trama%20verde.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+        </article>
+<!--/catalogo:pecas-->
+      </div>
+      <div class="cat-help rise">
+        <div>
+          <h3>Não encontrou o que procura?</h3>
+          <p>Mande uma foto ou descreva o que você imagina para o seu espaço. A gente ajuda a encontrar a peça certa.</p>
+        </div>
+        <a class="btn" href="https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem%21%20Estou%20procurando%20uma%20pe%C3%A7a%20para%20a%20minha%20casa%20e%20queria%20uma%20ajuda." target="_blank" rel="noopener">Falar com a loja <span class="arr" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <!--catalogo:dados-->
+<script type="application/json" id="catalog-data">[{"id":"cadeira-pendente","cat":"poltronas","catLabel":"Poltronas e cadeiras","name":"Cadeira pendente","desc":"Estrutura em fibra natural com trama aberta, corrente para pendurar e almofadas verdes em tecido. Uma peça para a varanda ou o jardim, feita para ficar.","comp":"Cadeira pendente com almofadas de assento e encosto","amb":"Varanda, jardim, área de lazer","img":"assets/products/entrega-fortaleza-pendente-md.webp","alt":"Cadeira pendente em fibra com almofadas verdes, instalada num jardim tropical","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Cadeira%20pendente.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"mesa-macica-8-cadeiras","cat":"jantar","catLabel":"Conjunto de jantar","name":"Mesa de madeira maciça para 8","desc":"Tampo de madeira maciça com as bordas naturais da tora e oito cadeiras com encosto e assento em corda trançada. Para reunir a família inteira na varanda ou na área gourmet.","comp":"Mesa retangular e 8 cadeiras","amb":"Área gourmet, varanda, sala de jantar","img":"assets/catalog/jantar-madeira-macica-8-cadeiras.webp","alt":"Mesa retangular de madeira maciça com oito cadeiras de corda trançada verde-escura num deck","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Mesa%20de%20madeira%20maci%C3%A7a%20para%208.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"jantar-redondo-6-cadeiras","cat":"jantar","catLabel":"Conjunto de jantar","name":"Jantar redondo com 6 cadeiras","desc":"Mesa redonda com tampo de vidro sobre base trançada e seis cadeiras de encosto envolvente em corda verde. Leve no visual e confortável para refeições longas.","comp":"Mesa redonda e 6 cadeiras","amb":"Varanda, área gourmet","img":"assets/catalog/jantar-redondo-vidro-6-cadeiras.webp","alt":"Mesa redonda com tampo de vidro e base trançada, com seis cadeiras de corda verde numa varanda","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Jantar%20redondo%20com%206%20cadeiras.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"estar-sofa-pufes","cat":"estar","catLabel":"Estar","name":"Estar com sofá e pufes","desc":"Sofá de três lugares, duas poltronas e mesa de centro com tampo de vidro que guarda quatro pufes embaixo. Estofados em vermelho para dar cor ao jardim.","comp":"Sofá 3 lugares, 2 poltronas, mesa de centro e 4 pufes","amb":"Jardim, varanda, área externa","img":"assets/catalog/estar-sofa-poltronas-pufes.webp","alt":"Conjunto de estar em fibra com sofá, duas poltronas, mesa de centro de vidro e quatro pufes, com estofados vermelhos","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Estar%20com%20sof%C3%A1%20e%20pufes.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"poltrona-acolchoada-clara","cat":"poltronas","catLabel":"Poltronas e cadeiras","name":"Poltrona acolchoada clara","desc":"Forma arredondada, estofado claro capitonado e estrutura trançada. Uma poltrona para afundar no fim da tarde.","comp":"Poltrona com almofada estofada","amb":"Sala, varanda coberta","img":"assets/pieces/creme.webp","alt":"Poltrona acolchoada clara com estrutura trançada","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Poltrona%20acolchoada%20clara.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"jantar-redondo-madeira","cat":"jantar","catLabel":"Conjunto de jantar","name":"Jantar redondo em madeira","desc":"Tampo de madeira em réguas sobre base trançada e quatro cadeiras de trama aberta com assento estofado. Um conjunto compacto para varandas e decks.","comp":"Mesa redonda e 4 cadeiras","amb":"Varanda, deck, jardim","img":"assets/catalog/jantar-redondo-madeira-4-cadeiras.webp","alt":"Mesa redonda com tampo de madeira e base trançada, com quatro cadeiras de trama bege num deck","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Jantar%20redondo%20em%20madeira.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"composicao-fibra","cat":"estar","catLabel":"Estar","name":"Composição em fibra","desc":"Duas poltronas redondas em fibra sintética, com almofadas, e uma mesa de centro com tampo de madeira. Ideal para criar um canto de conversa.","comp":"2 poltronas redondas com almofadas e mesa de centro","amb":"Varanda, jardim","img":"assets/products/composicao-fibra-sintetica-md.webp","alt":"Duas poltronas redondas em fibra sintética com mesa de centro de madeira","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Composi%C3%A7%C3%A3o%20em%20fibra.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"poltrona-balanco-terracota","cat":"poltronas","catLabel":"Poltronas e cadeiras","name":"Poltrona de balanço terracota","desc":"Estofado capitonado em terracota sobre base de balanço trançada. Uma presença quente para os seus momentos de pausa.","comp":"Poltrona de balanço com almofada estofada","amb":"Sala, varanda coberta","img":"assets/pieces/balanco-terracota.webp","alt":"Poltrona de balanço com estofado terracota","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Poltrona%20de%20balan%C3%A7o%20terracota.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"jantar-poltronas-azuis","cat":"jantar","catLabel":"Conjunto de jantar","name":"Jantar com poltronas azuis","desc":"Quatro poltronas de fibra trançada com braços largos e almofadas azuis, em volta de uma mesa redonda com tampo de vidro. Para refeições ao ar livre perto da piscina.","comp":"Mesa redonda e 4 poltronas com almofadas","amb":"Área da piscina, varanda, deck","img":"assets/catalog/jantar-vidro-4-poltronas.webp","alt":"Mesa redonda com tampo de vidro e quatro poltronas de fibra trançada com almofadas azuis, à beira da piscina","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Jantar%20com%20poltronas%20azuis.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"conjunto-varanda","cat":"estar","catLabel":"Estar","name":"Conjunto para varanda","desc":"Sofá de três lugares, duas poltronas e mesa de centro em fibra, com almofadas para combinar com o seu ambiente.","comp":"Sofá 3 lugares, 2 poltronas e mesa de centro","amb":"Varanda, sala de estar","img":"assets/products/entrega-fortaleza-conjunto-md.webp","alt":"Conjunto com sofá de três lugares e duas poltronas em fibra verde, com mesa de centro","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Conjunto%20para%20varanda.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"},{"id":"cadeira-trama-verde","cat":"poltronas","catLabel":"Poltronas e cadeiras","name":"Cadeira de trama verde","desc":"Linhas curvas, encosto trançado em corda verde e assento acolchoado. Combina com mesas de jantar e varandas.","comp":"Cadeira com assento estofado","amb":"Sala de jantar, varanda","img":"assets/pieces/trama-verde.webp","alt":"Cadeira de trama verde com assento acolchoado","wa":"https://wa.me/5585986000833?text=Ol%C3%A1%2C%20Viver%20Bem!%20Tenho%20interesse%20em%3A%20Cadeira%20de%20trama%20verde.%20Podem%20me%20passar%20medidas%2C%20cores%20dispon%C3%ADveis%2C%20valor%20e%20prazo%20de%20entrega%3F"}]</script>
+<!--/catalogo:dados-->
   </section>
 
   <section class="essence" id="essencia" aria-labelledby="essence-title">
@@ -354,9 +492,9 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
           <p>Cada entrega é uma casa que ganha um novo lugar favorito. Estas são algumas delas.</p>
         </div>
         <div class="deliv-grid">
-          <figure><img src="assets/products/entrega-guaramiranga-varanda-md.webp" width="960" height="876" loading="lazy" alt="Varanda com vista para a serra, com mesa e cadeiras em fibra e uma espreguiçadeira redonda"><figcaption><span>Uma de nossas entregas · Guaramiranga</span><b>Uma varanda com vista para a serra.</b></figcaption></figure>
-          <figure><img src="assets/products/entrega-fortaleza-pendente-md.webp" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes num jardim tropical"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>Um canto de descanso no jardim.</b></figcaption></figure>
-          <figure><img src="assets/products/entrega-fortaleza-conjunto-md.webp" width="960" height="628" loading="lazy" alt="Varanda com sofá e duas poltronas em fibra verde e almofadas estampadas"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>A varanda pronta para receber.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-guaramiranga-varanda-md.webp" srcset="assets/products/entrega-guaramiranga-varanda-sm.webp 480w, assets/products/entrega-guaramiranga-varanda-md.webp 960w" sizes="(max-width:760px) 92vw, 30vw" width="960" height="876" loading="lazy" alt="Varanda com vista para a serra, com mesa e cadeiras em fibra e uma espreguiçadeira redonda"><figcaption><span>Uma de nossas entregas · Guaramiranga</span><b>Uma varanda com vista para a serra.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-fortaleza-pendente-md.webp" srcset="assets/products/entrega-fortaleza-pendente-sm.webp 480w, assets/products/entrega-fortaleza-pendente-md.webp 960w" sizes="(max-width:760px) 92vw, 30vw" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes num jardim tropical"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>Um canto de descanso no jardim.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-fortaleza-conjunto-md.webp" srcset="assets/products/entrega-fortaleza-conjunto-sm.webp 480w, assets/products/entrega-fortaleza-conjunto-md.webp 960w" sizes="(max-width:760px) 92vw, 30vw" width="960" height="628" loading="lazy" alt="Varanda com sofá e duas poltronas em fibra verde e almofadas estampadas"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>A varanda pronta para receber.</b></figcaption></figure>
         </div>
       </div>
     </div>
@@ -387,20 +525,30 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   <div class="wrap">
     <a href="#inicio" aria-label="Voltar ao início"><img src="assets/brand/logo-240.webp" srcset="assets/brand/logo-240.webp 240w, assets/brand/logo-480.webp 480w" sizes="7rem" width="240" height="125" loading="lazy" alt="Viver Bem Decorações"></a>
     <span>Peças que viram parte da casa.</span>
-    <nav aria-label="Rodapé"><a href="#pecas">Peças</a><a href="https://www.instagram.com/viverbemdecoracoes/" target="_blank" rel="noopener">Instagram</a><a href="#inicio">Voltar ao topo ↑</a><button class="motion-toggle" id="motion-toggle" aria-pressed="false">Pausar movimentos</button></nav>
+    <nav aria-label="Rodapé"><a href="#pecas">Catálogo</a><a href="https://www.instagram.com/viverbemdecoracoes/" target="_blank" rel="noopener">Instagram</a><a href="#inicio">Voltar ao topo ↑</a><button class="motion-toggle" id="motion-toggle" aria-pressed="false">Pausar movimentos</button></nav>
   </div>
 </footer>
 
 <dialog id="modal" aria-labelledby="modal-title">
   <div class="modal">
     <button class="close" aria-label="Fechar">×</button>
-    <div class="modal-ph" id="modal-ph"><img id="modal-img" src="assets/hero/cadeira-pendente-420.webp" alt=""></div>
+    <div class="modal-ph"><img id="modal-img" alt=""></div>
     <div class="modal-copy">
-      <span class="eyebrow">Seu próximo lugar favorito</span>
+      <span class="eyebrow" id="modal-cat">Seu próximo lugar favorito</span>
       <h2 id="modal-title">Cadeira pendente</h2>
       <p id="modal-desc"></p>
-      <a class="btn" id="modal-wa" href="https://wa.me/5585986000833" target="_blank" rel="noopener">Falar no WhatsApp <span class="arr" aria-hidden="true">↗</span></a>
-      <small>Consulte medidas, materiais, cores, valor e prazo de entrega.</small>
+      <dl class="specs">
+        <dt>Composição</dt><dd id="modal-comp"></dd>
+        <dt>Ambiente</dt><dd id="modal-amb"></dd>
+        <dt>Medidas</dt><dd>Sob consulta</dd>
+        <dt>Cores e tecidos</dt><dd>Consulte as opções disponíveis</dd>
+      </dl>
+      <a class="btn" id="modal-wa" href="https://wa.me/5585986000833" target="_blank" rel="noopener">Pedir orçamento no WhatsApp <span class="arr" aria-hidden="true">↗</span></a>
+      <small>Respondemos com medidas, cores, valor e prazo de entrega.</small>
+      <div class="similar" id="similar">
+        <h3>Peças parecidas</h3>
+        <div class="similar-list" id="similar-list"></div>
+      </div>
     </div>
   </div>
 </dialog>
@@ -510,26 +658,65 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   addEventListener('load', measure);
   applyMotion();
 
+  /* catálogo: filtros por categoria, com link próprio (#jantar, #estar, #poltronas) */
+  const DATA = JSON.parse(document.getElementById('catalog-data').textContent);
+  const byId = Object.fromEntries(DATA.map(p => [p.id, p]));
+  const cards = [...document.querySelectorAll('.card')];
+  const chips = [...document.querySelectorAll('.chip')];
+  const countEl = document.getElementById('cat-count');
+  const CAT_SLUGS = chips.map(c => c.dataset.filter);
+  function applyFilter(slug, fromUser) {
+    let n = 0;
+    cards.forEach(card => {
+      const show = slug === 'todos' || card.dataset.cat === slug;
+      card.hidden = !show;
+      card.classList.remove('enter');
+      if (show) { n++; if (fromUser) { void card.offsetWidth; card.classList.add('enter'); } }
+    });
+    chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.filter === slug)));
+    countEl.textContent = n === 1 ? '1 peça' : n + ' peças';
+    if (fromUser) {
+      history.replaceState(null, '', slug === 'todos' ? location.pathname + location.search : '#' + slug);
+      const top = document.getElementById('cards').getBoundingClientRect().top;
+      const bar = document.querySelector('.cat-bar').offsetHeight + header.offsetHeight;
+      if (top < bar) scrollTo({ top: scrollY + top - bar - 16, behavior: paused ? 'auto' : 'smooth' });
+    }
+  }
+  chips.forEach(c => c.addEventListener('click', () => applyFilter(c.dataset.filter, true)));
+  const initial = location.hash.slice(1);
+  if (CAT_SLUGS.includes(initial) && initial !== 'todos') {
+    applyFilter(initial, false);
+    requestAnimationFrame(() => document.getElementById('pecas').scrollIntoView());
+  }
+
   /* detalhe da peça */
-  const WA = 'https://wa.me/5585986000833?text=';
-  const PIECES = {
-    pendente: { name: 'Cadeira pendente', img: 'assets/products/entrega-fortaleza-pendente-md.webp', desc: 'Estrutura em fibra natural com trama aberta e almofadas verdes em tecido. Uma peça para pendurar na varanda ou no jardim e ficar.' },
-    creme: { name: 'Poltrona acolchoada clara', img: 'assets/pieces/creme.webp', desc: 'Forma arredondada, estofado claro capitonado e estrutura trançada. Uma referência de acolhimento para compor o seu espaço.' },
-    trama: { name: 'Cadeira de trama verde', img: 'assets/pieces/trama-verde.webp', desc: 'Linhas curvas, encosto trançado em corda verde e assento acolchoado. Combina com mesas de jantar e varandas.' },
-    terracota: { name: 'Poltrona de balanço terracota', img: 'assets/pieces/balanco-terracota.webp', desc: 'Estofado capitonado em terracota sobre base de balanço trançada. Uma presença quente para os seus momentos de pausa.' },
-    fibra: { name: 'Composição em fibra', img: 'assets/products/composicao-fibra-sintetica-md.webp', desc: 'Duas poltronas redondas em fibra sintética com almofadas e mesa de centro com tampo de madeira.' },
-    conjunto: { name: 'Conjunto para varanda', img: 'assets/products/entrega-fortaleza-conjunto-md.webp', desc: 'Sofá de três lugares, duas poltronas e mesa de centro em fibra, com almofadas para combinar com o seu ambiente.' }
-  };
   const modal = document.getElementById('modal');
-  document.querySelectorAll('[data-piece]').forEach(btn => btn.addEventListener('click', () => {
-    const d = PIECES[btn.dataset.piece];
+  function openPiece(id) {
+    const d = byId[id]; if (!d) return;
+    document.getElementById('modal-cat').textContent = d.catLabel;
     document.getElementById('modal-title').textContent = d.name;
     document.getElementById('modal-desc').textContent = d.desc;
-    const img = document.getElementById('modal-img'); img.src = d.img; img.alt = d.name;
-    document.getElementById('modal-ph').classList.toggle('contain', !!d.contain);
-    document.getElementById('modal-wa').href = WA + encodeURIComponent(`Olá, Viver Bem! Vi a ${d.name.toLowerCase()} no site. Podem me passar medidas, cores disponíveis, valor e prazo de entrega?`);
-    modal.showModal();
-  }));
+    document.getElementById('modal-comp').textContent = d.comp;
+    document.getElementById('modal-amb').textContent = d.amb;
+    const img = document.getElementById('modal-img'); img.src = d.img; img.alt = d.alt;
+    document.getElementById('modal-wa').href = d.wa;
+    const similar = DATA.filter(p => p.cat === d.cat && p.id !== d.id).slice(0, 3);
+    const list = document.getElementById('similar-list');
+    list.replaceChildren(...similar.map(p => {
+      const b = document.createElement('button');
+      b.dataset.piece = p.id;
+      const i = document.createElement('img'); i.src = p.img; i.alt = ''; i.loading = 'lazy';
+      b.append(i, p.name);
+      return b;
+    }));
+    document.getElementById('similar').hidden = similar.length === 0;
+    if (!modal.open) modal.showModal();
+    modal.scrollTop = 0;
+  }
+  document.addEventListener('click', e => {
+    const t = e.target.closest('[data-piece]');
+    if (t) openPiece(t.dataset.piece);
+  });
   modal.querySelector('.close').addEventListener('click', () => modal.close());
   modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
 })();

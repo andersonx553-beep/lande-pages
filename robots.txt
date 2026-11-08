@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /lande-pages/sketches/
+Sitemap: https://andersonx553-beep.github.io/lande-pages/sitemap.xml
