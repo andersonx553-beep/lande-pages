@@ -120,19 +120,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .traveler .shadow{position:absolute;left:12%;right:12%;bottom:-1.1rem;height:1.7rem;border-radius:50%;background:radial-gradient(ellipse,rgba(56,38,23,.33),transparent 70%);transform:scaleX(.85);filter:blur(7px);z-index:-1}
 .js-travel .landing .static{visibility:hidden}
 
-/* presença: Trama, Toque, Matéria */
-.presence{background:var(--linen-2);padding-block:clamp(4rem,8vw,8rem)}
-.presence-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.4rem}
-.presence h2{font-size:clamp(2.4rem,3.8vw,5.6rem)}
-.presence-head p{max-width:32ch;color:var(--muted)}
-.materials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.75rem,1.4vw,1.4rem)}
-.material{position:relative;margin:0;overflow:hidden;aspect-ratio:4/3;background:var(--linen)}
-.material img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.material::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(235,225,210,.92),rgba(235,225,210,0) 55%);pointer-events:none}
-.material:hover img{transform:scale(1.05)}
-.material figcaption{position:absolute;z-index:1;left:1.4rem;bottom:1.3rem;font-family:var(--display);font-size:1.8rem;line-height:1}
-.material figcaption::after{content:"";display:block;width:3rem;height:1px;background:currentColor;margin-top:.6rem}
-
 /* peças */
 .pieces{padding-block:clamp(4.5rem,9vw,9rem)}
 .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.6rem}
@@ -162,12 +149,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .fact strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2rem,3vw,4.2rem);line-height:1;letter-spacing:-.02em}
 .fact span{display:block;margin-top:.6rem;font-size:.85rem;color:#cfd2c3}
 .deliveries{margin-top:clamp(3.5rem,7vw,6rem)}
-.deliveries h3{font-size:1.6rem;margin-bottom:1.3rem}
+.deliveries-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1.8rem}
+.deliveries h3{font-size:clamp(1.9rem,2.6vw,3.6rem);max-width:16ch}
+.deliveries-head p{max-width:34ch;color:#cfd2c3}
 .deliv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2vw,2rem)}
 .deliv-grid figure{margin:0}
 .deliv-grid img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.deliv-grid figcaption{display:flex;justify-content:space-between;gap:1rem;padding-top:.8rem;font-size:.85rem;color:#cfd2c3}
-.deliv-grid figcaption b{font-weight:500;color:var(--forest-ink)}
+.deliv-grid figcaption{padding-top:1rem}
+.deliv-grid figcaption span{display:block;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#c9bf9f}
+.deliv-grid figcaption b{display:block;margin-top:.45rem;font-family:var(--display);font-weight:400;font-size:1.35rem;line-height:1.2;color:var(--forest-ink)}
 
 /* perguntas */
 .faq{padding-block:clamp(4.5rem,8vw,8rem)}
@@ -236,15 +226,14 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   .landing{height:auto;width:min(76vw,22rem)}
   .track{right:.75rem;top:auto;bottom:6rem;height:16rem}
   .landing-foot{font-size:1rem;bottom:1.5rem;right:var(--gutter-r)}
-  .presence-head,.head{display:block}
-  .presence-head p,.head p{margin-top:1rem}
-  .materials{grid-template-columns:1fr;gap:.6rem}
-  .material{aspect-ratio:16/7}
-  .material figcaption{font-size:1.4rem;left:1rem;bottom:1rem}
+  .head{display:block}
+  .head p{margin-top:1rem}
   .grid{grid-template-columns:1fr 1fr}
   .piece h3{font-size:1.2rem}
   .facts{grid-template-columns:1fr}
   .fact,.fact+.fact{padding:1.2rem 0;border-left:0;border-bottom:1px solid rgba(233,228,214,.22)}
+  .deliveries-head{display:block}
+  .deliveries-head p{margin-top:.9rem}
   .deliv-grid{grid-template-columns:1fr;gap:1.6rem}
   .deliv-grid img{aspect-ratio:4/3}
   .modal{grid-template-columns:1fr}
@@ -321,19 +310,6 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
     </div>
   </div>
 
-  <section class="presence" aria-labelledby="presence-title">
-    <div class="wrap">
-      <div class="presence-head rise">
-        <h2 id="presence-title">O conforto ganha presença.</h2>
-        <p>Mais do que móveis, são peças que acolhem, aproximam e transformam o ambiente.</p>
-      </div>
-      <div class="materials rise">
-        <figure class="material"><img src="assets/hero/detalhe-trama.webp" width="413" height="322" loading="lazy" alt="Detalhe da trama em fibra natural da cadeira pendente"><figcaption>Trama</figcaption></figure>
-        <figure class="material"><img src="assets/hero/detalhe-toque.webp" width="393" height="264" loading="lazy" alt="Detalhe da almofada verde em tecido"><figcaption>Toque</figcaption></figure>
-        <figure class="material"><img src="assets/materials/materia.webp" width="420" height="280" loading="lazy" alt="Tampo de madeira de uma mesa redonda na varanda"><figcaption>Matéria</figcaption></figure>
-      </div>
-    </div>
-  </section>
 
   <section class="pieces" id="pecas" aria-labelledby="pieces-title">
     <div class="wrap">
@@ -345,7 +321,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         <p>Toque em uma peça para ver os detalhes e falar com a loja pelo WhatsApp.</p>
       </div>
       <div class="grid">
-        <button class="piece rise" data-piece="pendente"><span class="ph contain"><img src="assets/hero/cadeira-pendente-420.webp" width="420" height="580" loading="lazy" alt="Cadeira pendente em fibra natural com almofadas verdes"></span><h3>Cadeira pendente</h3><small>Fibra natural · almofadas verdes</small></button>
+        <button class="piece rise" data-piece="pendente"><span class="ph"><img src="assets/products/entrega-fortaleza-pendente-md.webp" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes, instalada num jardim tropical"></span><h3>Cadeira pendente</h3><small>Fibra natural · almofadas verdes</small></button>
         <button class="piece rise" data-piece="creme"><span class="ph"><img src="assets/pieces/creme.webp" width="512" height="512" loading="lazy" alt="Poltrona acolchoada clara com estrutura trançada"></span><h3>Poltrona acolchoada clara</h3><small>Estofado claro · estrutura trançada</small></button>
         <button class="piece rise" data-piece="trama"><span class="ph"><img src="assets/pieces/trama-verde.webp" width="512" height="512" loading="lazy" alt="Cadeira de trama verde com assento acolchoado"></span><h3>Cadeira de trama verde</h3><small>Trama em corda · linhas curvas</small></button>
         <button class="piece rise" data-piece="terracota"><span class="ph"><img src="assets/pieces/balanco-terracota.webp" width="512" height="512" loading="lazy" alt="Poltrona de balanço com estofado terracota"></span><h3>Poltrona de balanço terracota</h3><small>Estofado capitonado · base de balanço</small></button>
@@ -373,11 +349,14 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         <div class="fact"><strong>Na sua casa</strong><span>entregamos a peça onde ela vai ficar</span></div>
       </div>
       <div class="deliveries rise">
-        <h3>Entregas recentes</h3>
+        <div class="deliveries-head">
+          <h3>Onde a Viver Bem já é parte da casa.</h3>
+          <p>Cada entrega é uma casa que ganha um novo lugar favorito. Estas são algumas delas.</p>
+        </div>
         <div class="deliv-grid">
-          <figure><img src="assets/products/entrega-guaramiranga-varanda-md.webp" width="960" height="876" loading="lazy" alt="Varanda com vista para a serra, com mesa e cadeiras em fibra e uma espreguiçadeira redonda"><figcaption><b>Varanda · Guaramiranga</b><span>Dez 2024</span></figcaption></figure>
-          <figure><img src="assets/products/entrega-fortaleza-pendente-md.webp" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes num jardim tropical"><figcaption><b>Jardim · Fortaleza</b><span>Dez 2024</span></figcaption></figure>
-          <figure><img src="assets/products/entrega-fortaleza-conjunto-md.webp" width="960" height="628" loading="lazy" alt="Varanda com sofá e duas poltronas em fibra verde e almofadas estampadas"><figcaption><b>Varanda · Fortaleza</b><span>Dez 2024</span></figcaption></figure>
+          <figure><img src="assets/products/entrega-guaramiranga-varanda-md.webp" width="960" height="876" loading="lazy" alt="Varanda com vista para a serra, com mesa e cadeiras em fibra e uma espreguiçadeira redonda"><figcaption><span>Uma de nossas entregas · Guaramiranga</span><b>Uma varanda com vista para a serra.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-fortaleza-pendente-md.webp" width="960" height="936" loading="lazy" alt="Cadeira pendente em fibra com almofadas verdes num jardim tropical"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>Um canto de descanso no jardim.</b></figcaption></figure>
+          <figure><img src="assets/products/entrega-fortaleza-conjunto-md.webp" width="960" height="628" loading="lazy" alt="Varanda com sofá e duas poltronas em fibra verde e almofadas estampadas"><figcaption><span>Uma de nossas entregas · Fortaleza</span><b>A varanda pronta para receber.</b></figcaption></figure>
         </div>
       </div>
     </div>
@@ -534,7 +513,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   /* detalhe da peça */
   const WA = 'https://wa.me/5585986000833?text=';
   const PIECES = {
-    pendente: { name: 'Cadeira pendente', img: 'assets/hero/cadeira-pendente-760.webp', contain: true, desc: 'Estrutura em fibra natural com trama aberta e almofadas verdes em tecido. Uma peça para pendurar na varanda ou no jardim e ficar.' },
+    pendente: { name: 'Cadeira pendente', img: 'assets/products/entrega-fortaleza-pendente-md.webp', desc: 'Estrutura em fibra natural com trama aberta e almofadas verdes em tecido. Uma peça para pendurar na varanda ou no jardim e ficar.' },
     creme: { name: 'Poltrona acolchoada clara', img: 'assets/pieces/creme.webp', desc: 'Forma arredondada, estofado claro capitonado e estrutura trançada. Uma referência de acolhimento para compor o seu espaço.' },
     trama: { name: 'Cadeira de trama verde', img: 'assets/pieces/trama-verde.webp', desc: 'Linhas curvas, encosto trançado em corda verde e assento acolchoado. Combina com mesas de jantar e varandas.' },
     terracota: { name: 'Poltrona de balanço terracota', img: 'assets/pieces/balanco-terracota.webp', desc: 'Estofado capitonado em terracota sobre base de balanço trançada. Uma presença quente para os seus momentos de pausa.' },

@@ -44,7 +44,7 @@ Para abrir localmente: `python3 -m http.server 8000 --bind 127.0.0.1` e acesse `
 
 ### Imagens
 
-- `scripts/process-hero-assets.py`: cenário da varanda em 3 larguras, recorte da cadeira pendente (remove o fundo branco, inclusive entre as tramas, e aquece a luz) e os detalhes Trama e Toque.
+- `scripts/process-hero-assets.py`: cenário da varanda em 3 larguras, recorte da cadeira pendente (remove o fundo branco, inclusive entre as tramas, e aquece a luz) e recortes de detalhe da trama e da almofada (não usados no site atual).
 - `scripts/extract-reference-assets.py`: logo, peças e recortes de material a partir do HTML de referência.
 - `scripts/process-photos.py`: fotos reais de entregas, sem tarjas e marca d'água, em 3 tamanhos.
 
@@ -54,10 +54,9 @@ Os scripts gravam em `src/assets/`. Copie para `dist/assets/` os arquivos usados
 
 1. Varanda com o título e o botão para as peças. A cadeira pendente fica no canto da cena.
 2. "Um convite para ficar": a cadeira pousa, com Trama, Estofado e Presença e uma linha de progresso.
-3. "O conforto ganha presença": detalhes de Trama, Toque e Matéria.
-4. Peças: cada uma abre um detalhe com botão de WhatsApp e mensagem com o nome da peça.
-5. Nossa essência: 50 anos, Fortaleza e interior, entrega, e entregas recentes reais.
-6. Perguntas frequentes, contato (WhatsApp principal, Instagram secundário) e rodapé.
+3. Peças: cada uma abre um detalhe com botão de WhatsApp e mensagem com o nome da peça.
+4. Nossa essência: 50 anos, Fortaleza e interior, entrega, e entregas recentes reais.
+5. Perguntas frequentes, contato (WhatsApp principal, Instagram secundário) e rodapé.
 
 Acessibilidade: quem ativa "reduzir movimento" no aparelho, ou toca em "Pausar movimentos" no rodapé, vê a cadeira parada onde ela pousa. O conteúdo fica visível sem JavaScript.
 
