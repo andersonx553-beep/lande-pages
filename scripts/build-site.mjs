@@ -7,6 +7,56 @@ import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 let html = await readFile(resolve(root, 'dist/index.html'), 'utf8');
 
+// ---------- catálogo: src/catalog.json gera filtros, contagem, cartões e a ficha das peças ----------
+const catalog = JSON.parse(await readFile(resolve(root, 'src/catalog.json'), 'utf8'));
+const esc = v => String(v).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+const cats = new Map(catalog.categorias.map(c => [c.id, c]));
+const waLink = text => `https://wa.me/${catalog.whatsapp}?text=${encodeURIComponent(text)}`;
+const askFor = name => waLink(`Olá, Viver Bem! Tenho interesse em: ${name}. Podem me passar medidas, cores disponíveis, valor e prazo de entrega?`);
+const SIZES = '(max-width:350px) 92vw, (max-width:760px) 46vw, (min-width:1500px) 22vw, 30vw';
+const ids = new Set();
+for (const p of catalog.pecas) {
+  for (const k of ['id', 'categoria', 'nome', 'resumo', 'descricao', 'composicao', 'ambiente', 'foto', 'largura', 'altura', 'texto_alternativo']) {
+    if (!p[k]) throw new Error(`src/catalog.json: a peça "${p.id || p.nome}" está sem o campo "${k}".`);
+  }
+  if (!cats.has(p.categoria)) throw new Error(`src/catalog.json: categoria desconhecida "${p.categoria}" na peça "${p.id}".`);
+  if (ids.has(p.id)) throw new Error(`src/catalog.json: id repetido "${p.id}".`);
+  ids.add(p.id);
+}
+const count = id => catalog.pecas.filter(p => p.categoria === id).length;
+const plural = n => (n === 1 ? '1 peça' : `${n} peças`);
+const chipsHtml = [
+  `            <button class="chip" data-filter="todos" aria-pressed="true">Todos <span class="chip-n">${catalog.pecas.length}</span></button>`,
+  ...catalog.categorias.map(c => `            <button class="chip" data-filter="${esc(c.id)}" aria-pressed="false">${esc(c.nome)} <span class="chip-n">${count(c.id)}</span></button>`)
+].join('\n');
+const cardsHtml = catalog.pecas.map(p => {
+  const srcset = p.foto_pequena ? ` srcset="${esc(p.foto_pequena)} 480w, ${esc(p.foto)} ${p.largura}w" sizes="${SIZES}"` : '';
+  return [
+    `        <article class="card" data-cat="${esc(p.categoria)}">`,
+    `          <div class="card-ph"><img src="${esc(p.foto)}"${srcset} width="${p.largura}" height="${p.altura}" loading="lazy" alt="${esc(p.texto_alternativo)}"></div>`,
+    `          <p class="card-cat">${esc(cats.get(p.categoria).rotulo)}</p>`,
+    `          <h3><button class="card-open" data-piece="${esc(p.id)}">${esc(p.nome)}</button></h3>`,
+    `          <p class="card-short">${esc(p.resumo)}</p>`,
+    `          <a class="card-cta" href="${esc(askFor(p.nome))}" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>`,
+    '        </article>'
+  ].join('\n');
+}).join('\n');
+const dataJson = JSON.stringify(catalog.pecas.map(p => ({
+  id: p.id, cat: p.categoria, catLabel: cats.get(p.categoria).rotulo, name: p.nome, desc: p.descricao,
+  comp: p.composicao, amb: p.ambiente, img: p.foto, alt: p.texto_alternativo, wa: askFor(p.nome)
+}))).replaceAll('</', '<\\/');
+const region = (name, body) => {
+  const re = new RegExp(`(<!--catalogo:${name}-->\\n)[\\s\\S]*?(\\n<!--/catalogo:${name}-->)`);
+  if (!re.test(html)) throw new Error(`dist/index.html: marcador <!--catalogo:${name}--> não encontrado.`);
+  html = html.replace(re, (_, a, b) => a + body + b);
+};
+region('filtros', chipsHtml);
+region('contagem', `<p class="cat-count" id="cat-count" aria-live="polite">${plural(catalog.pecas.length)}</p>`);
+region('pecas', cardsHtml);
+region('dados', `<script type="application/json" id="catalog-data">${dataJson}</script>`);
+// o arquivo-fonte também fica com o catálogo atualizado (para abrir dist/index.html direto e gerar o HTML único)
+await writeFile(resolve(root, 'dist/index.html'), html);
+
 const url = new URL(process.env.SITE_URL || 'https://andersonx553-beep.github.io/lande-pages/');
 if (url.protocol !== 'https:' || url.username || url.password || url.search || url.hash) {
   throw new Error('SITE_URL deve ser o endereço público HTTPS, sem credenciais, consulta ou fragmento.');
@@ -53,4 +103,4 @@ await writeFile(resolve(root, 'sitemap.xml'),
 // (usuario.github.io/lande-pages/) este arquivo é ignorado; passa a valer com domínio próprio.
 await writeFile(resolve(root, 'robots.txt'),
   `User-agent: *\nDisallow: ${url.pathname}sketches/\nSitemap: ${abs('sitemap.xml')}\n`);
-console.log(`index.html, sitemap.xml e robots.txt gerados para ${url.href}`);
+console.log(`Catálogo: ${catalog.pecas.length} peças. index.html, sitemap.xml e robots.txt gerados para ${url.href}`);

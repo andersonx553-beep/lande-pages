@@ -50,6 +50,16 @@ Para abrir localmente: `python3 -m http.server 8000 --bind 127.0.0.1` e acesse `
 
 Os scripts gravam em `src/assets/`. Copie para `dist/assets/` os arquivos usados no site.
 
+## Catálogo: adicionar ou editar peças
+
+As peças ficam em `src/catalog.json`. O `npm run build` gera a partir dele os filtros, as contagens, os cartões, a ficha e os links de WhatsApp com mensagem pronta.
+
+1. Coloque as fotos em `dist/assets/catalog/`: uma versão grande e uma de 480px de largura (`nome-480.webp`). `scripts/process-catalog-photos.py` faz isso e remove a marca d'água da loja quando ela está sobre o piso.
+2. Acrescente um bloco em `src/catalog.json`, copiando um existente: `id` (único, sem espaços), `categoria` (`jantar`, `estar` ou `poltronas`), `nome`, `resumo`, `descricao`, `composicao`, `ambiente`, `foto`, `foto_pequena`, `largura`, `altura` e `texto_alternativo` (descrição da foto para quem não enxerga e para o Google).
+3. Rode `npm run build`. Se faltar um campo ou a categoria não existir, o build para e diz qual peça corrigir.
+
+Para criar uma categoria nova, inclua-a em `categorias`, com `id`, `nome` (texto do filtro) e `rotulo` (texto acima do nome da peça).
+
 ## SEO
 
 - Título, descrição, link canônico, prévia de compartilhamento (`dist/assets/og-image.jpg`, 1200×630) e dados da loja (JSON-LD `FurnitureStore`) são gerados pelo build com o `SITE_URL`.
@@ -61,7 +71,7 @@ Os scripts gravam em `src/assets/`. Copie para `dist/assets/` os arquivos usados
 
 1. Varanda com o título e o botão para as peças. A cadeira pendente fica no canto da cena.
 2. "Um convite para ficar": a cadeira pousa, com Trama, Estofado e Presença e uma linha de progresso.
-3. Peças: cada uma abre um detalhe com botão de WhatsApp e mensagem com o nome da peça.
+3. Catálogo: filtros por categoria (com link próprio: `#jantar`, `#estar`, `#poltronas`), cartões com "Pedir orçamento" e ficha da peça com composição, ambiente, botão de WhatsApp e peças parecidas.
 4. Nossa essência: 50 anos, Fortaleza e interior, entrega, e entregas recentes reais.
 5. Perguntas frequentes, contato (WhatsApp principal, Instagram secundário) e rodapé.
 
