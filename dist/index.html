@@ -204,7 +204,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .rv-photo img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--linen-2)}
 .rv-photo figcaption{margin-top:.7rem;font-size:.85rem;color:var(--muted)}
 .rv-photo figcaption b{display:block;color:var(--ink);font-weight:600}
-.rv-hint{margin-top:1rem;font-size:.82rem;color:var(--muted)}
+.rv-dots{display:flex;justify-content:center;gap:.25rem;margin-top:1.2rem}
+.rv-dots button{width:1.75rem;height:1.75rem;display:grid;place-items:center}
+.rv-dots button::before{content:"";width:.5rem;height:.5rem;border-radius:99px;background:var(--rule);transition:width .4s ease,background .4s ease}
+.rv-dots button:hover::before{background:var(--muted)}
+.rv-dots button[aria-current="true"]::before{width:1.5rem;background:var(--forest)}
+.rv-hint{margin-top:.4rem;text-align:center;font-size:.82rem;color:var(--muted)}
 @media (hover:hover) and (pointer:fine){.rv-hint{display:none}}
 
 /* perguntas */
@@ -598,6 +603,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
           </article>
         </div>
       </div>
+      <div class="rv-dots" id="rv-dots" role="group" aria-label="Escolher avaliação"></div>
       <p class="rv-hint">Deslize para conhecer outras histórias</p>
     </div>
   </section>
@@ -749,11 +755,19 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   addEventListener('load', measure);
   applyMotion();
 
-  /* avaliações: uma por vez, troca sozinha a cada 5s; arrastar no celular também troca */
+  /* avaliações: uma por vez, troca sozinha a cada 7s; pontinhos mostram a posição e trocam ao clicar; arrastar no celular também troca */
   (() => {
     const stage = document.getElementById('rv-stage');
     const slides = [...stage.querySelectorAll('.rv')];
-    const DUR = 5000, total = slides.length;
+    const DUR = 7000, total = slides.length;
+    const dotsBox = document.getElementById('rv-dots');
+    const dots = slides.map((_, k) => {
+      const d = document.createElement('button');
+      d.setAttribute('aria-label', `Avaliação ${k + 1} de ${total}`);
+      d.addEventListener('click', () => show(k, k >= i ? 1 : -1));
+      dotsBox.append(d);
+      return d;
+    });
     let i = 0, elapsed = 0, last = 0, visible = false;
     function show(n, dir = 1) {
       const prev = slides[i];
@@ -765,6 +779,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         sl.setAttribute('aria-hidden', String(!on));
         sl.querySelectorAll('a').forEach(a => on ? a.removeAttribute('tabindex') : a.setAttribute('tabindex', '-1'));
       });
+      dots.forEach((d, k) => d.setAttribute('aria-current', String(k === i)));
       elapsed = 0;
     }
     function tick(t) {
@@ -781,6 +796,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
       x0 = null;
     }, { passive: true });
     new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; }), { threshold: .35 }).observe(stage);
+    dots[0].setAttribute('aria-current', 'true');
     requestAnimationFrame(t => { last = t; tick(t); });
   })();
 
