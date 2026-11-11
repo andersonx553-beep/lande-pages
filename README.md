@@ -2,6 +2,21 @@
 
 Landing page da Viver Bem. A cadeira pendente começa na cena da varanda e, conforme a pessoa rola, desce com inércia até a seção "Um convite para ficar". Os pedidos vão para o WhatsApp com mensagem pronta.
 
+## Hospedar na Vercel (recomendado)
+
+O repositório já tem `vercel.json`. A Vercel roda `npm run build`, que gera a pasta `public/` só com o site, e publica essa pasta. O link canônico, a prévia de compartilhamento, o `sitemap.xml` e o `robots.txt` usam automaticamente o endereço de produção da Vercel (`VERCEL_PROJECT_PRODUCTION_URL`).
+
+1. Entre em vercel.com com a conta do GitHub.
+2. **Add New → Project** e importe `andersonx553-beep/lande-pages`.
+3. Não mude nada: Framework Preset "Other", e o build e a pasta vêm do `vercel.json`. Clique em **Deploy**.
+4. Cada merge na `main` publica sozinho; cada pull request ganha um link de prévia.
+
+O `vercel.json` também define cache longo para imagens, fontes e `site.js`, e cabeçalhos de segurança.
+
+**Domínio próprio:** na Vercel, **Settings → Domains**, adicione o domínio e crie no registro do domínio o DNS que ela indicar. Depois, para o canônico usar o domínio, crie em **Settings → Environment Variables** a variável `SITE_URL` (ex.: `https://viverbem.com.br/`) e faça um novo deploy.
+
+**Evite duas cópias no ar:** com o site na Vercel, desligue o GitHub Pages (Settings → Pages → Source: None), para o Google não ver o mesmo site em dois endereços.
+
 ## Hospedar no GitHub Pages
 
 O site é estático: o `index.html` da raiz e a pasta `dist/assets/`. Não precisa de servidor, banco nem build no GitHub.

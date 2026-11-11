@@ -4,3 +4,6 @@ node_modules/
 *.log
 dist/__qa-*.html
 graphify-out/
+# gerada pelo build para a Vercel
+public/
+.vercel/
