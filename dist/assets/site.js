@@ -150,6 +150,17 @@ new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; arm
 document.addEventListener('visibilitychange', arm);
 dots[0].setAttribute('aria-current', 'true');
 })();
+/* contagem de cliques (Umami, sem cookies). Só envia algo se o script do Umami estiver na página:
+o build só o inclui quando a variável UMAMI_WEBSITE_ID existe na Vercel. */
+const track = (name, data) => { try { if (window.umami) window.umami.track(name, data); } catch (e) {} };
+document.addEventListener('click', e => {
+const a = e.target.closest('a[href]'); if (!a) return;
+const ev = a.href.includes('wa.me/') ? 'whatsapp' : a.href.includes('instagram.com') ? 'instagram' : a.href.includes('google.com/maps') ? 'avaliacoes-google' : null;
+if (!ev) return;
+const card = a.closest('.card');
+const peca = card ? card.querySelector('.card-open').textContent : a.id === 'modal-wa' ? document.getElementById('modal-title').textContent : '';
+track(ev, Object.assign({ origem: card ? 'cartao' : (a.dataset.origem || 'outro') }, peca ? { peca } : {}));
+}, true);
 const DATA = window.__CATALOG || JSON.parse(document.getElementById('catalog-data').textContent);
 const byId = Object.fromEntries(DATA.map(p => [p.id, p]));
 const cards = [...document.querySelectorAll('.card')];
@@ -173,7 +184,7 @@ const bar = document.querySelector('.cat-bar').offsetHeight + header.offsetHeigh
 if (top < bar) scrollTo({ top: scrollY + top - bar - 16, behavior: paused ? 'auto' : 'smooth' });
 }
 }
-chips.forEach(c => c.addEventListener('click', () => applyFilter(c.dataset.filter, true)));
+chips.forEach(c => c.addEventListener('click', () => { applyFilter(c.dataset.filter, true); track('filtro', { categoria: c.dataset.filter }); }));
 const initial = location.hash.slice(1);
 if (CAT_SLUGS.includes(initial) && initial !== 'todos') {
 applyFilter(initial, false);
@@ -182,6 +193,7 @@ requestAnimationFrame(() => document.getElementById('pecas').scrollIntoView());
 const modal = document.getElementById('modal');
 function openPiece(id) {
 const d = byId[id]; if (!d) return;
+track('ver-peca', { peca: d.name });
 document.getElementById('modal-cat').textContent = d.catLabel;
 document.getElementById('modal-title').textContent = d.name;
 document.getElementById('modal-desc').textContent = d.desc;

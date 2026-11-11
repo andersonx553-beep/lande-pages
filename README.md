@@ -17,6 +17,27 @@ O `vercel.json` também define cache longo para imagens, fontes e `site.js`, e c
 
 **Evite duas cópias no ar:** com o site na Vercel, desligue o GitHub Pages (Settings → Pages → Source: None), para o Google não ver o mesmo site em dois endereços.
 
+## Contagem de visitas e cliques (Umami)
+
+O site conta visitas e cliques com o Umami, que não usa cookies (dispensa aviso de cookies). O script só entra no site quando a variável `UMAMI_WEBSITE_ID` existe na Vercel, e só conta o endereço de produção (as prévias de PR não entram).
+
+**Para ligar:**
+1. Crie uma conta em umami.is (plano gratuito "Hobby") e adicione um site com o domínio de produção (ex.: `lande-pages.vercel.app`).
+2. Copie o **Website ID** (formato `1234abcd-...`).
+3. Na Vercel: **Settings → Environment Variables**, crie `UMAMI_WEBSITE_ID` com esse valor (ambiente Production) e faça um novo deploy (**Deployments → ⋯ → Redeploy**).
+
+**Eventos que aparecem no painel do Umami (em Events):**
+
+| Evento | Quando | Detalhes |
+|---|---|---|
+| `whatsapp` | Clique em qualquer botão de WhatsApp | `origem`: cabecalho, cartao, ficha, nao-encontrou, contato; `peca`: nome da peça, quando houver |
+| `ver-peca` | Abriu a ficha de uma peça | `peca` |
+| `filtro` | Usou um filtro do catálogo | `categoria` |
+| `instagram` | Clique no Instagram | `origem` |
+| `avaliacoes-google` | Clique em "Ver avaliações no Google" | `origem` |
+
+Com domínio próprio, inclua também o domínio em `SITE_URL` (o canônico) e, se o site responder em mais de um endereço, liste os extras em `SITE_DOMAINS` (separados por vírgula).
+
 ## Hospedar no GitHub Pages
 
 O site é estático: o `index.html` da raiz e a pasta `dist/assets/`. Não precisa de servidor, banco nem build no GitHub.
