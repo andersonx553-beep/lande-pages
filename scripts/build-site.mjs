@@ -92,8 +92,36 @@ html = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
   return `<script type="application/ld+json">\n${JSON.stringify(data)}\n</script>`;
 });
 
+// imagens abaixo da dobra: o endereço real só entra quando a imagem chega perto da tela (ver data-src no
+// script da página). Sem isso o navegador antecipa fotos a até ~2.500px e elas disputam a conexão com a
+// foto principal. <noscript> mantém as fotos para quem navega sem JavaScript.
+html = html.replace(/<img (?![^>]*class="static")([^>]*?)loading="lazy"([^>]*)>/g, (tag, a, b) => {
+  const deferred = `<img ${a}loading="lazy"${b}>`.replace(/ src="/, ' data-src="').replace(/ srcset="/, ' data-srcset="');
+  return `${deferred}<noscript>${tag}</noscript>`;
+});
+html = html.replace('</head>', '<noscript><style>img[data-src]{display:none}</style></noscript>\n</head>');
+
+// enxuga o CSS e o JavaScript embutidos: tira comentários de linha inteira e recuos (textos e URLs ficam iguais)
+html = html.replace(/<style>([\s\S]*?)<\/style>/g, (_, css) => '<style>' + css
+  .replace(/\/\*[\s\S]*?\*\//g, '')
+  .split('\n').map(l => l.trim()).filter(Boolean).join('\n') + '</style>');
+html = html.replace(/<script>([\s\S]*?)<\/script>/g, (_, js) => '<script>' + js
+  .replace(/^\s*\/\*[^\n]*?\*\/\s*$/gm, '')
+  .split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('//')).join('\n') + '</script>');
+
 // todo caminho relativo assets/ (atributos, srcset, url() do CSS e strings do JS) passa a apontar para dist/assets/
 html = html.replace(/(?<![\w./-])assets\//g, 'dist/assets/');
+// o JavaScript e os dados do catálogo vão para um arquivo separado, carregado com defer:
+// o HTML fica abaixo de ~14KB compactado e chega numa única ida e volta, antes da foto principal.
+const dataTag = html.match(/<script type="application\/json" id="catalog-data">([\s\S]*?)<\/script>/);
+const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+const main = scripts[scripts.length - 1];
+let siteJs = `window.__CATALOG=${dataTag[1]};\n${main[1]}\n`;
+html = html.replace(main[0], '').replace(dataTag[0], '');
+const { createHash } = await import('node:crypto');
+const v = createHash('sha256').update(siteJs).digest('hex').slice(0, 10);
+await writeFile(resolve(root, 'dist/assets/site.js'), siteJs);
+html = html.replace('</head>', `<script src="dist/assets/site.js?v=${v}" defer></script>\n</head>`);
 await writeFile(resolve(root, 'index.html'), html);
 
 const today = new Date().toISOString().slice(0, 10);

@@ -15,12 +15,14 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/hero/cenario-1738.webp" imagesrcset="assets/hero/cenario-768.webp 768w, assets/hero/cenario-1280.webp 1280w, assets/hero/cenario-1738.webp 1738w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" media="(max-width:480px)" imagesrcset="assets/hero/cenario-celular-640.avif 640w, assets/hero/cenario-celular-960.avif 960w, assets/hero/cenario-celular-1216.avif 1216w" imagesizes="32.5rem" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" media="(min-width:481px)" imagesrcset="assets/hero/assets/hero/cenario-768.avif 768w, assets/hero/cenario-1280.avif 1280w, assets/hero/cenario-1738.avif 1738w" imagesizes="(max-width:700px) 46rem, 100vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/hanken-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FurnitureStore","name":"Viver Bem Decorações","telephone":"+5585986000833","sameAs":["https://www.instagram.com/viverbemdecoracoes/"]}
 </script>
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion")</script>
 <style>
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/newsreader-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Newsreader';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/newsreader-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
@@ -118,9 +120,19 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* a cadeira que viaja */
 .traveler{position:absolute;left:0;top:0;z-index:3;pointer-events:none;transform-origin:0 0;will-change:transform;visibility:hidden}
 .traveler.on{visibility:visible}
+.traveler img{opacity:0;transition:opacity .7s ease}
+.traveler img.ready{opacity:1}
+.traveler picture,.landing picture{display:contents}
 .traveler img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 .7rem .75rem rgba(33,25,11,.13))}
 .traveler .shadow{position:absolute;left:12%;right:12%;bottom:-1.1rem;height:1.7rem;border-radius:50%;background:radial-gradient(ellipse,rgba(56,38,23,.33),transparent 70%);transform:scaleX(.85);filter:blur(7px);z-index:-1}
 .js-travel .landing .static{visibility:hidden}
+
+/* seções abaixo da dobra: o navegador só calcula o layout quando chegam perto da tela */
+.catalog,.essence,.faq,.reviews,.contact,.footer{content-visibility:auto}
+/* altura estimada de cada seção antes de ser vista (medida no site); depois o navegador guarda a real */
+.catalog{contain-intrinsic-size:auto 185rem}.essence{contain-intrinsic-size:auto 95rem}.faq{contain-intrinsic-size:auto 44rem}
+.reviews{contain-intrinsic-size:auto 58rem}.contact{contain-intrinsic-size:auto 16rem}.footer{contain-intrinsic-size:auto 8rem}
+@media (max-width:760px){.catalog{contain-intrinsic-size:auto 190rem}.essence{contain-intrinsic-size:auto 145rem}.faq{contain-intrinsic-size:auto 40rem}.reviews{contain-intrinsic-size:auto 57rem}.contact{contain-intrinsic-size:auto 19rem}.footer{contain-intrinsic-size:auto 13rem}}
 
 /* catálogo */
 .catalog{padding-block:clamp(4.5rem,9vw,9rem) clamp(4rem,7vw,7rem)}
@@ -346,11 +358,15 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   <div class="journey" id="journey">
 
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <img class="hero-img" id="hero-img"
+      <picture>
+        <source media="(max-width:480px)" type="image/avif" srcset="assets/hero/cenario-celular-640.avif 640w, assets/hero/cenario-celular-960.avif 960w, assets/hero/cenario-celular-1216.avif 1216w" sizes="32.5rem">
+        <source type="image/avif" srcset="assets/hero/cenario-768.avif 768w, assets/hero/cenario-1280.avif 1280w, assets/hero/cenario-1738.avif 1738w" sizes="(max-width:700px) 46rem, 100vw">
+        <img class="hero-img" id="hero-img"
         src="assets/hero/cenario-1738.webp"
         srcset="assets/hero/cenario-768.webp 768w, assets/hero/cenario-1280.webp 1280w, assets/hero/cenario-1738.webp 1738w"
-        sizes="100vw" width="1738" height="905" fetchpriority="high"
+        sizes="(max-width:700px) 46rem, 100vw" width="1738" height="905" fetchpriority="high"
         alt="Varanda ao fim da tarde, com poltrona acolchoada clara, cadeiras de trama verde e mesa redonda de madeira">
+      </picture>
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-copy">
         <p class="hero-kicker">Móveis e decorações artesanais e orgânicos para sua casa, jardim e varanda</p>
@@ -376,7 +392,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         </div>
         <div class="landing-col">
           <div class="landing" id="landing">
-            <img class="static" src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 230px, 29rem" width="1061" height="1466" loading="lazy" alt="Cadeira suspensa em fibra natural com almofadas verdes">
+            <picture><source type="image/avif" srcset="assets/hero/cadeira-pendente-300.avif 300w, assets/hero/cadeira-pendente-420.avif 420w, assets/hero/cadeira-pendente-760.avif 760w, assets/hero/cadeira-pendente-1061.avif 1061w" sizes="(max-width:760px) 230px, 29rem"><img class="static" src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 230px, 29rem" width="1061" height="1466" loading="lazy" alt="Cadeira suspensa em fibra natural com almofadas verdes"></picture>
           </div>
         </div>
       </div>
@@ -385,7 +401,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
     </section>
 
     <div class="traveler" id="traveler" aria-hidden="true">
-      <img src="assets/hero/cadeira-pendente-760.webp" srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 230px, 29rem" fetchpriority="high" width="1061" height="1466" alt="">
+      <picture><source type="image/avif" data-late-srcset="assets/hero/cadeira-pendente-300.avif 300w, assets/hero/cadeira-pendente-420.avif 420w, assets/hero/cadeira-pendente-760.avif 760w, assets/hero/cadeira-pendente-1061.avif 1061w" sizes="(max-width:760px) 230px, 29rem"><img data-late-src="assets/hero/cadeira-pendente-760.webp" data-late-srcset="assets/hero/cadeira-pendente-420.webp 420w, assets/hero/cadeira-pendente-760.webp 760w, assets/hero/cadeira-pendente-1073.webp 1061w" sizes="(max-width:760px) 230px, 29rem" width="1061" height="1466" alt=""></picture>
       <div class="shadow"></div>
     </div>
   </div>
@@ -565,7 +581,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
       </div>
       <div class="rv-stage" id="rv-stage" aria-roledescription="carrossel" aria-label="Avaliações de clientes">
         <div class="rv-track" id="rv-track" aria-live="off">
-          <article class="rv has-photo is-on" role="group" aria-roledescription="avaliação" aria-label="1 de 4">
+          <div class="rv has-photo is-on" role="group" aria-roledescription="avaliação" aria-label="1 de 4">
             <div class="rv-body">
               <span class="stars" aria-label="5 de 5 estrelas">★★★★★</span>
               <blockquote class="rv-quote" cite="https://www.google.com/maps/search/?api=1&amp;query=Viver%20Bem%20Decora%C3%A7%C3%B5es%20Fortaleza"><p>“Atendimento e entrega nota 1000 [...] muito feliz com a minha compra, daria 100000 estrelas se pudesse.”</p></blockquote>
@@ -574,8 +590,8 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
               <a class="rv-link" href="https://www.google.com/maps/search/?api=1&amp;query=Viver%20Bem%20Decora%C3%A7%C3%B5es%20Fortaleza" target="_blank" rel="noopener">Ver avaliações no Google <span aria-hidden="true">↗</span></a>
             </div>
             <figure class="rv-photo"><img src="assets/reviews/jannayna-cadeira-luna.webp" width="339" height="339" loading="lazy" alt="Poltrona de balanço Luna com estofado claro, na sala da cliente"><figcaption><b>Cadeira Luna</b>Foto enviada pela cliente</figcaption></figure>
-          </article>
-          <article class="rv" role="group" aria-roledescription="avaliação" aria-label="2 de 4" aria-hidden="true">
+          </div>
+          <div class="rv" role="group" aria-roledescription="avaliação" aria-label="2 de 4" aria-hidden="true">
             <div class="rv-body">
               <span class="stars" aria-label="5 de 5 estrelas">★★★★★</span>
               <blockquote class="rv-quote" cite="https://www.google.com/maps/search/?api=1&amp;query=Viver%20Bem%20Decora%C3%A7%C3%B5es%20Fortaleza"><p>“Namorava a muito tempo essa cadeira. Comprei e recebi hoje. [...] Simplesmente linda demais. Comprem sem medo.”</p></blockquote>
@@ -583,8 +599,8 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
               <div class="rv-who"><span class="rv-avatar" aria-hidden="true">I</span><span><b>Isabel Brito</b><small>Avaliação no Google</small></span></div>
               <a class="rv-link" href="https://www.google.com/maps/search/?api=1&amp;query=Viver%20Bem%20Decora%C3%A7%C3%B5es%20Fortaleza" target="_blank" rel="noopener" tabindex="-1">Ver avaliações no Google <span aria-hidden="true">↗</span></a>
             </div>
-          </article>
-          <article class="rv has-photo" role="group" aria-roledescription="avaliação" aria-label="3 de 4" aria-hidden="true">
+          </div>
+          <div class="rv has-photo" role="group" aria-roledescription="avaliação" aria-label="3 de 4" aria-hidden="true">
             <div class="rv-body">
               <span class="stars" aria-label="5 de 5 estrelas">★★★★★</span>
               <blockquote class="rv-quote" cite="https://www.google.com/maps/search/?api=1&amp;query=Viver%20Bem%20Decora%C3%A7%C3%B5es%20Fortaleza"><p>“Excelente atendimento [...] nos deu total confiança e conforto na escolha da mesa e cadeira. Eu super recomendo.”</p></blockquote>
@@ -593,8 +609,8 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
               <a class="rv-link" href="https://www.google.com/maps/search/?api=1&amp;query=Viver%20Bem%20Decora%C3%A7%C3%B5es%20Fortaleza" target="_blank" rel="noopener" tabindex="-1">Ver avaliações no Google <span aria-hidden="true">↗</span></a>
             </div>
             <figure class="rv-photo"><img src="assets/reviews/gabs-mesa-cadeiras.webp" width="339" height="339" loading="lazy" alt="Mesa redonda de madeira e duas cadeiras de corda azul na varanda da cliente"><figcaption><b>Mesa e cadeiras na varanda</b>Foto enviada pela cliente</figcaption></figure>
-          </article>
-          <article class="rv" role="group" aria-roledescription="avaliação" aria-label="4 de 4" aria-hidden="true">
+          </div>
+          <div class="rv" role="group" aria-roledescription="avaliação" aria-label="4 de 4" aria-hidden="true">
             <div class="rv-body">
               <span class="stars" aria-label="5 de 5 estrelas">★★★★★</span>
               <blockquote class="rv-quote" cite="https://www.google.com/maps/search/?api=1&amp;query=Viver%20Bem%20Decora%C3%A7%C3%B5es%20Fortaleza"><p>“Loja muito bem projetada, com lindos móveis de bom gosto. Quer se sentir bem confortável em casa? Conheça a loja.”</p></blockquote>
@@ -602,7 +618,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
               <div class="rv-who"><span class="rv-avatar" aria-hidden="true">G</span><span><b>Gesso São Paulo Fortaleza</b><small>Avaliação no Google</small></span></div>
               <a class="rv-link" href="https://www.google.com/maps/search/?api=1&amp;query=Viver%20Bem%20Decora%C3%A7%C3%B5es%20Fortaleza" target="_blank" rel="noopener" tabindex="-1">Ver avaliações no Google <span aria-hidden="true">↗</span></a>
             </div>
-          </article>
+          </div>
         </div>
       </div>
       <div class="rv-dots" id="rv-dots" role="group" aria-label="Escolher avaliação"></div>
@@ -653,6 +669,19 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
 </dialog>
 
 <script>
+(() => {
+  /* imagens adiadas: troca data-src por src quando chegam a 500px da tela */
+  const lazy = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const img = e.target;
+    if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src'); img.removeAttribute('data-srcset');
+    lazy.unobserve(img);
+  }), { rootMargin: '500px 0px' });
+  document.querySelectorAll('img[data-src]').forEach(img => lazy.observe(img));
+})();
+
 (() => {
   const body = document.body;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
@@ -738,7 +767,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   }
 
   function applyMotion() {
-    body.classList.toggle('motion', !paused);
+    document.documentElement.classList.toggle('motion', !paused);
     journey.classList.toggle('js-travel', !paused);
     traveler.classList.toggle('on', !paused);
     const b = document.getElementById('motion-toggle');
@@ -751,10 +780,23 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
   reduce.addEventListener('change', e => { paused = e.matches; applyMotion(); });
 
   addEventListener('scroll', () => { header.classList.toggle('scrolled', scrollY > 8); update(); }, { passive: true });
-  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(measure, 120); });
-  if (!heroImg.complete) heroImg.addEventListener('load', measure);
-  if (document.fonts) document.fonts.ready.then(measure);
-  addEventListener('load', measure);
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(scheduleMeasure, 120); });
+  let mq = 0;
+  const scheduleMeasure = () => { if (!mq) mq = requestAnimationFrame(() => { mq = 0; measure(); }); };
+  // a cadeira só começa a baixar depois que a cena aparece, para não disputar a conexão com ela
+  const loadTraveler = () => {
+    traveler.querySelectorAll('[data-late-srcset]').forEach(el => { el.srcset = el.dataset.lateSrcset; el.removeAttribute('data-late-srcset'); });
+    const img = traveler.querySelector('img');
+    if (!img.dataset.lateSrc) return;
+    img.addEventListener('load', () => img.classList.add('ready'), { once: true });
+    img.src = img.dataset.lateSrc; img.removeAttribute('data-late-src');
+  };
+  // espera a página terminar a carga inicial e dois quadros, para a cena ser desenhada antes
+  const afterPaint = () => requestAnimationFrame(() => requestAnimationFrame(loadTraveler));
+  if (document.readyState === 'complete') afterPaint(); else addEventListener('load', afterPaint, { once: true });
+  if (!heroImg.complete) heroImg.addEventListener('load', scheduleMeasure);
+  if (document.fonts) document.fonts.ready.then(scheduleMeasure);
+  addEventListener('load', scheduleMeasure);
   applyMotion();
 
   /* avaliações: uma por vez, troca sozinha a cada 7s; pontinhos mostram a posição e trocam ao clicar; arrastar no celular também troca */
@@ -770,7 +812,8 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
       dotsBox.append(d);
       return d;
     });
-    let i = 0, elapsed = 0, last = 0, visible = false;
+    let i = 0, timer = 0, visible = false;
+    const arm = () => { clearTimeout(timer); if (visible && !document.hidden) timer = setTimeout(() => show(i + 1), DUR); };
     function show(n, dir = 1) {
       const prev = slides[i];
       i = (n + total) % total;
@@ -782,12 +825,7 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
         sl.querySelectorAll('a').forEach(a => on ? a.removeAttribute('tabindex') : a.setAttribute('tabindex', '-1'));
       });
       dots.forEach((d, k) => d.setAttribute('aria-current', String(k === i)));
-      elapsed = 0;
-    }
-    function tick(t) {
-      // só conta enquanto a seção está na tela e a aba está aberta
-      if (visible && !document.hidden) { elapsed += Math.min(t - last, 100); if (elapsed >= DUR) show(i + 1); }
-      last = t; requestAnimationFrame(tick);
+      arm();
     }
     let x0 = null, y0 = 0;
     stage.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
@@ -797,13 +835,13 @@ dialog::backdrop{background:rgba(26,22,17,.6);backdrop-filter:blur(4px)}
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(i + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
       x0 = null;
     }, { passive: true });
-    new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; }), { threshold: .35 }).observe(stage);
+    new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; arm(); }), { threshold: .35 }).observe(stage);
+    document.addEventListener('visibilitychange', arm);
     dots[0].setAttribute('aria-current', 'true');
-    requestAnimationFrame(t => { last = t; tick(t); });
   })();
 
   /* catálogo: filtros por categoria, com link próprio (#jantar, #estar, #poltronas) */
-  const DATA = JSON.parse(document.getElementById('catalog-data').textContent);
+  const DATA = window.__CATALOG || JSON.parse(document.getElementById('catalog-data').textContent);
   const byId = Object.fromEntries(DATA.map(p => [p.id, p]));
   const cards = [...document.querySelectorAll('.card')];
   const chips = [...document.querySelectorAll('.chip')];

@@ -60,6 +60,19 @@ As peças ficam em `src/catalog.json`. O `npm run build` gera a partir dele os f
 
 Para criar uma categoria nova, inclua-a em `categorias`, com `id`, `nome` (texto do filtro) e `rotulo` (texto acima do nome da peça).
 
+## Desempenho (Lighthouse 100)
+
+O site marca 100 em desempenho, acessibilidade, boas práticas e SEO no celular e no desktop. O que sustenta isso:
+
+- **Foto principal em AVIF** (`dist/assets/hero/*.avif`), com WebP de reserva. No celular (até 480px) usa `cenario-celular-*.avif`, um recorte só da parte que aparece na tela: mesmo enquadramento, mais nítido e mais leve.
+- **HTML abaixo de 14KB compactado**: o JavaScript e os dados do catálogo ficam em `dist/assets/site.js`, gerado pelo build e carregado com `defer`. Edite o script em `dist/index.html`, nunca em `site.js`.
+- **Imagens abaixo da dobra só baixam perto da tela**: o build troca `src` por `data-src` nas imagens com `loading="lazy"` e mantém uma cópia em `<noscript>` para quem navega sem JavaScript.
+- **A cadeira suspensa baixa depois da carga da página** e entra com um fade, para não disputar a conexão com a foto principal.
+- **Seções abaixo da dobra com `content-visibility`**, com a altura real de cada uma em `rem`. Se uma seção mudar muito de tamanho, ajuste o `contain-intrinsic-size` correspondente.
+- **Fontes enxutas**: `scripts/subset-fonts.py` (requer `pip install fonttools brotli`) gera, a partir de `src/fonts-originais/`, versões só com os caracteres do português e, na Hanken Grotesk, só os pesos 400–600. Se usar um caractere novo (por exemplo, outro símbolo), acrescente em `TEXT` e rode de novo.
+
+Avisos que continuam no relatório e não tiram ponto: o cache de 10 minutos é fixo no GitHub Pages; o aviso de "imagem maior que o necessário" na foto do celular ignora o corte por `object-fit: cover`, e reduzir a foto a deixaria borrada.
+
 ## SEO
 
 - Título, descrição, link canônico, prévia de compartilhamento (`dist/assets/og-image.jpg`, 1200×630) e dados da loja (JSON-LD `FurnitureStore`) são gerados pelo build com o `SITE_URL`.

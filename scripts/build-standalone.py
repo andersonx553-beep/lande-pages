@@ -17,7 +17,10 @@ OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "viver-bem-decoracoes.h
 MIME = {".webp": "image/webp", ".svg": "image/svg+xml", ".woff2": "font/woff2", ".png": "image/png"}
 
 html = SRC.read_text(encoding="utf-8")
-html = re.sub(r'\s*<link rel="preload"[^>]*>', "", html)          # pré-carregamentos não fazem sentido embutidos
+html = re.sub(r'\s*<link rel="preload"[^>]*>', "", html)               # pré-carregamentos não fazem sentido embutidos
+html = re.sub(r"<noscript>.*?</noscript>", "", html, flags=re.S)   # sem cópias duplicadas das fotos
+html = re.sub(r"<source [^>]*>", "", html)                            # só a versão WebP de cada imagem
+html = re.sub(r'\sdata-late-srcset="[^"]*"', "", html)
 html = re.sub(r'\s(?:srcset|imagesrcset|sizes)="[^"]*"', "", html)  # um tamanho por imagem
 
 cache = {}
