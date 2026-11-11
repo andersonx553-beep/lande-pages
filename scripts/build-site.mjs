@@ -69,6 +69,15 @@ const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;')
 const canonical = escape(url.href);
 const image = escape(abs('dist/assets/og-image.jpg'));
 
+// contagem de visitas e cliques com Umami (sem cookies): só entra quando UMAMI_WEBSITE_ID está definida
+// (variável de ambiente na Vercel). data-domains faz contar só o endereço de produção, não as prévias.
+const umamiId = (process.env.UMAMI_WEBSITE_ID || '').trim();
+if (umamiId) {
+  if (!/^[0-9a-f-]{36}$/i.test(umamiId)) throw new Error('UMAMI_WEBSITE_ID deve ser o Website ID do Umami (formato 1234abcd-...).');
+  const domains = [url.hostname, process.env.SITE_DOMAINS].filter(Boolean).join(',');
+  html = html.replace('</head>', `<script defer src="https://cloud.umami.is/script.js" data-website-id="${umamiId}" data-domains="${escape(domains)}"></script>\n</head>`);
+}
+
 html = html.replace('</head>', [
   `<link rel="canonical" href="${canonical}">`,
   `<meta property="og:url" content="${canonical}">`,
