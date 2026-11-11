@@ -57,7 +57,9 @@ region('dados', `<script type="application/json" id="catalog-data">${dataJson}</
 // o arquivo-fonte também fica com o catálogo atualizado (para abrir dist/index.html direto e gerar o HTML único)
 await writeFile(resolve(root, 'dist/index.html'), html);
 
-const url = new URL(process.env.SITE_URL || 'https://andersonx553-beep.github.io/lande-pages/');
+// Na Vercel, o endereço de produção vem de VERCEL_PROJECT_PRODUCTION_URL (ou do domínio próprio configurado lá).
+const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/`;
+const url = new URL(process.env.SITE_URL || vercelUrl || 'https://andersonx553-beep.github.io/lande-pages/');
 if (url.protocol !== 'https:' || url.username || url.password || url.search || url.hash) {
   throw new Error('SITE_URL deve ser o endereço público HTTPS, sem credenciais, consulta ou fragmento.');
 }
@@ -132,3 +134,12 @@ await writeFile(resolve(root, 'sitemap.xml'),
 await writeFile(resolve(root, 'robots.txt'),
   `User-agent: *\nDisallow: ${url.pathname}sketches/\nSitemap: ${abs('sitemap.xml')}\n`);
 console.log(`Catálogo: ${catalog.pecas.length} peças. index.html, sitemap.xml e robots.txt gerados para ${url.href}`);
+
+// pasta de publicação limpa (usada pela Vercel): só o site, sem scripts, protótipos nem arquivos originais
+const { rm, mkdir, cp } = await import('node:fs/promises');
+const out = resolve(root, 'public');
+await rm(out, { recursive: true, force: true });
+await mkdir(resolve(out, 'dist'), { recursive: true });
+for (const f of ['index.html', 'sitemap.xml', 'robots.txt']) await cp(resolve(root, f), resolve(out, f));
+await cp(resolve(root, 'dist/assets'), resolve(out, 'dist/assets'), { recursive: true });
+console.log('Pasta public/ pronta para publicar.');
